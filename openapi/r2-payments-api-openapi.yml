@@ -1,0 +1,231 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: support@r2capital.co
+    name: R2 Support
+  description: '## Introduction
+
+    <p>Through our REST APIs, you''ll be able to run an end-to-end capital program for your merchants. Specifically, you will: </br></p>
+
+    <ul>
+
+    <li>Securely share data about your merchants and their transactions so that R2 can score them</li>
+
+    <li>Issue optimal financing offers for your preapproved merchants</li>
+
+    <li>Launch marketing touchpoints so that preapproved merchants learn about their financing offers</li>
+
+    <li>Send or capture specific data about a merchant to run R2''s KYC process</li>
+
+    <li>Learn when a financing has been made along with its specific terms</li>
+
+    <li>Provide sales and/or repayment data on financed merchants</li>
+
+    <li>Retrieve updated balances</li>
+
+    <li>Renew financings</li>
+
+    </ul>
+
+    <p>We have language bindings in Shell. You can view code snippets on the right-hand panel, and you can switch the snippets'' programming language using the tabs above the code view.</br>
+
+    To access our APIs, you need an access token. Please sign-up and get a new access token by registering at our developer portal.</p>'
+  title: R2 APIs callbacks payments API
+  version: '0.1'
+servers:
+- url: https://gateway-dev.r2capital.co:443/v2
+- url: https://gateway-dev.r2capital.co/v2/
+  description: Development environment (DEV)
+tags:
+- name: payments
+paths:
+  /api/payments/payin/refund/{id}:
+    post:
+      description: 'Important: We are expecting the R2 collection id.'
+      parameters:
+      - description: uuid formatted R2 collection ID.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/paymentsdomain.RefundRequest'
+        description: collection amount to refund, it should be a negative amount
+        required: true
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                properties:
+                  error:
+                    type: string
+                  items:
+                    items:
+                      $ref: '#/components/schemas/paymentsdomain.RefundPaymentResponse'
+                    type: array
+                type: object
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                properties:
+                  error:
+                    type: string
+                  items:
+                    items:
+                      type: object
+                    type: array
+                type: object
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                properties:
+                  error:
+                    type: string
+                  items:
+                    items:
+                      type: object
+                    type: array
+                type: object
+        '500':
+          description: Internal Server Error
+      security:
+      - JWT: []
+      summary: Refund partially one collection.
+      tags:
+      - payments
+  /api/payments/payin/revert/{id}:
+    post:
+      description: 'Important: We are expecting the R2 collection id.'
+      parameters:
+      - description: uuid formatted R2 collection ID.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                properties:
+                  error:
+                    type: string
+                  items:
+                    items:
+                      $ref: '#/components/schemas/paymentsdomain.RevertCollectionResponse'
+                    type: array
+                type: object
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                properties:
+                  error:
+                    type: string
+                  items:
+                    items:
+                      type: object
+                    type: array
+                type: object
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                properties:
+                  error:
+                    type: string
+                  items:
+                    items:
+                      type: object
+                    type: array
+                type: object
+        '500':
+          description: Internal Server Error
+      security:
+      - JWT: []
+      summary: Revert one collection.
+      tags:
+      - payments
+components:
+  schemas:
+    paymentsdomain.RefundPaymentResponse:
+      properties:
+        error:
+          example: In case of error here is a message
+          type: string
+        items:
+          items:
+            $ref: '#/components/schemas/paymentsdomain.RevertCollectionResponse'
+          type: array
+      type: object
+    paymentsdomain.RevertData:
+      properties:
+        amount_to_dismiss:
+          example: 0
+          type: number
+        charged_amount:
+          example: -70.1
+          type: number
+        repayment_amount:
+          example: -70.1
+          type: number
+      type: object
+    paymentsdomain.RefundRequest:
+      properties:
+        amount:
+          example: -70.1
+          type: number
+        gross_sales_amount:
+          example: 70.1
+          type: number
+        id:
+          type: string
+        metadata:
+          type: object
+        partner_collection_id:
+          example: 550e8400-e29b-41d4-a716-446655440000
+          type: string
+      type: object
+    paymentsdomain.RevertCollectionResponse:
+      properties:
+        collection_id:
+          example: 550e8400-e29b-41d4-a716-446655440000
+          type: string
+        data:
+          $ref: '#/components/schemas/paymentsdomain.RevertData'
+        financing_id:
+          example: 550e8400-e29b-41d4-a716-446655440001
+          type: string
+        message:
+          example: A revert or refund collection related to parent id was added
+          type: string
+        parent_id:
+          example: 550e8400-e29b-41d4-a716-446655440002
+          type: string
+        partner_collection_id:
+          type: string
+        success:
+          example: true
+          type: boolean
+      type: object
+  securitySchemes:
+    JWT:
+      in: header
+      name: Authorization
+      type: apiKey

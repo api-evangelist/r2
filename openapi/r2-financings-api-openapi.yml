@@ -1,0 +1,261 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: support@r2capital.co
+    name: R2 Support
+  description: '## Introduction
+
+    <p>Through our REST APIs, you''ll be able to run an end-to-end capital program for your merchants. Specifically, you will: </br></p>
+
+    <ul>
+
+    <li>Securely share data about your merchants and their transactions so that R2 can score them</li>
+
+    <li>Issue optimal financing offers for your preapproved merchants</li>
+
+    <li>Launch marketing touchpoints so that preapproved merchants learn about their financing offers</li>
+
+    <li>Send or capture specific data about a merchant to run R2''s KYC process</li>
+
+    <li>Learn when a financing has been made along with its specific terms</li>
+
+    <li>Provide sales and/or repayment data on financed merchants</li>
+
+    <li>Retrieve updated balances</li>
+
+    <li>Renew financings</li>
+
+    </ul>
+
+    <p>We have language bindings in Shell. You can view code snippets on the right-hand panel, and you can switch the snippets'' programming language using the tabs above the code view.</br>
+
+    To access our APIs, you need an access token. Please sign-up and get a new access token by registering at our developer portal.</p>'
+  title: R2 APIs callbacks financings API
+  version: '0.1'
+servers:
+- url: https://gateway-dev.r2capital.co:443/v2
+- url: https://gateway-dev.r2capital.co/v2/
+  description: Development environment (DEV)
+tags:
+- name: financings
+paths:
+  /financings/{id}:
+    get:
+      parameters:
+      - description: uuid formatted ID.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  error:
+                    type: string
+                  items:
+                    items:
+                      $ref: '#/components/schemas/domain.FinancingsViewAPI'
+                    type: array
+                type: object
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      security:
+      - JWT: []
+      summary: Show a financing by its id.
+      tags:
+      - financings
+  /financings/:
+    get:
+      description: Show a list of financings associated to the partner.
+      parameters:
+      - in: query
+        name: financing_id
+        schema:
+          type: string
+      - in: query
+        name: kind
+        schema:
+          type: string
+          enum:
+          - REGULAR
+          - DIRECT
+          - RETURNED
+      - in: query
+        name: partner_collection_id
+        schema:
+          type: string
+      - in: query
+        name: status
+        schema:
+          type: string
+          enum:
+          - PROCESSED
+          - NOT_PROCESSED
+      - in: query
+        name: page
+        schema:
+          type: integer
+      - in: query
+        name: per_page
+        schema:
+          type: integer
+      - in: query
+        name: sort
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  error:
+                    type: string
+                  items:
+                    items:
+                      $ref: '#/components/schemas/domain.FinancingsViewAPI'
+                    type: array
+                type: object
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      security:
+      - JWT: []
+      summary: Show all financings.
+      tags:
+      - financings
+components:
+  schemas:
+    domain.FinancingsViewAPI:
+      properties:
+        amount:
+          type: number
+        amount_to_disburse:
+          type: number
+        application_id:
+          description: The application associated with the financing  (UUIDv4)
+          example: 74ed597b-63f3-479f-a17a-77d7fe265599
+          type: string
+          x-order: '02'
+        balance:
+          description: Remaining amount to be paid
+          example: 200342.19
+          type: number
+          x-order: '11'
+        created_at:
+          type: string
+        due_date:
+          description: Due date for this financing
+          example: '2023-03-25'
+          type: string
+          x-order: '07'
+        external_id:
+          description: The merchant associated with the financing (partner's internal merchant identification)
+          example: 15HBB34
+          type: string
+          x-order: '04'
+        fixed_fee:
+          description: Fee charged over the principal amount
+          example: 12453.67
+          type: number
+          x-order: 08
+        id:
+          description: The financing identification (UUIDv4)
+          example: b6a34301-4910-4a8b-8d2d-998180e219a7
+          type: string
+          x-order: '01'
+        insurance_fee:
+          example: 998.34
+          type: number
+          x-order: '10'
+        loan_taker:
+          type: string
+        loan_taker_short_name:
+          description: The loan taker associated with the financing
+          example: 15HBB34
+          type: string
+          x-order: '14'
+        merchant_id:
+          description: The merchant associated with the financing (internal to R2) (UUIDv4)
+          example: 444a1c09-473b-4019-a280-53e1d5604773
+          type: string
+          x-order: '03'
+        offer_id:
+          example: 74ed597b-63f3-479f-a17a-77d7fe265599
+          type: string
+          x-order: '02'
+        paid_percentage:
+          description: Percentage paid
+          example: 50.04
+          type: number
+          x-order: '13'
+        paid_total:
+          description: Amount already paid
+          example: 200656.15
+          type: number
+          x-order: '12'
+        partner_id:
+          type: string
+        product_category:
+          enum:
+          - RBF_TERM
+          - RBF_FLEX
+          - INSTALLMENT_SIMPLE
+          - RBF_FLEX_AMORTIZED
+          example: RBF_TERM
+          type: string
+        repayment_rate:
+          description: Percentage to be deducted from the merchant's sales
+          example: 25.23
+          type: number
+          x-order: 09
+        start_date:
+          description: The date when this financing started
+          example: '2022-05-20'
+          type: string
+          x-order: '06'
+        status:
+          description: Financing current status
+          enum:
+          - INITIALIZED
+          - ACTIVE
+          - PAID
+          example: ACTIVE
+          type: string
+          x-order: '05'
+        status_reasons:
+          items:
+            type: string
+          type: array
+        subcategory:
+          type: string
+        term:
+          description: Number of days to pay the financing
+          example: 240
+          type: integer
+        total_repayment_amount:
+          description: Total amount to be paid
+          example: 400998.34
+          type: number
+          x-order: '10'
+        updated_at:
+          type: string
+      type: object
+  securitySchemes:
+    JWT:
+      in: header
+      name: Authorization
+      type: apiKey

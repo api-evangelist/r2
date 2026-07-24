@@ -1,0 +1,289 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: support@r2capital.co
+    name: R2 Support
+  description: '## Introduction
+
+    <p>Through our REST APIs, you''ll be able to run an end-to-end capital program for your merchants. Specifically, you will: </br></p>
+
+    <ul>
+
+    <li>Securely share data about your merchants and their transactions so that R2 can score them</li>
+
+    <li>Issue optimal financing offers for your preapproved merchants</li>
+
+    <li>Launch marketing touchpoints so that preapproved merchants learn about their financing offers</li>
+
+    <li>Send or capture specific data about a merchant to run R2''s KYC process</li>
+
+    <li>Learn when a financing has been made along with its specific terms</li>
+
+    <li>Provide sales and/or repayment data on financed merchants</li>
+
+    <li>Retrieve updated balances</li>
+
+    <li>Renew financings</li>
+
+    </ul>
+
+    <p>We have language bindings in Shell. You can view code snippets on the right-hand panel, and you can switch the snippets'' programming language using the tabs above the code view.</br>
+
+    To access our APIs, you need an access token. Please sign-up and get a new access token by registering at our developer portal.</p>'
+  title: R2 APIs callbacks merchants API
+  version: '0.1'
+servers:
+- url: https://gateway-dev.r2capital.co:443/v2
+- url: https://gateway-dev.r2capital.co/v2/
+  description: Development environment (DEV)
+tags:
+- name: merchants
+paths:
+  /webhooks/merchants/{external_id}:
+    patch:
+      description: Process a merchant.
+      parameters:
+      - description: external_id
+        in: path
+        name: external_id
+        required: true
+        schema:
+          type: string
+      - description: api_key
+        in: query
+        name: api_key
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/domain.MerchantMetadata'
+        description: body
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  error:
+                    type: string
+                  items:
+                    items:
+                      $ref: '#/components/schemas/domain.Merchant'
+                    type: array
+                type: object
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      summary: Process a merchant.
+      tags:
+      - merchants
+components:
+  schemas:
+    domain.MerchantMetadataBank:
+      properties:
+        account_number:
+          type: string
+        account_type:
+          type: string
+        bank_name:
+          type: string
+        code:
+          type: string
+        disbursement_info:
+          $ref: '#/components/schemas/domain.MerchantMetadataBankDisbursementInfo'
+        doc_id:
+          type: string
+        doc_type:
+          type: string
+        id:
+          type: string
+        owner:
+          type: string
+        rfc:
+          type: string
+        rut:
+          type: string
+      type: object
+    domain.MerchantMetadataAdditionalInformation:
+      type: object
+    domain.MerchantMetadataBankDisbursementInfo:
+      properties:
+        first_payout_unix_time_seconds:
+          type: integer
+        last_payout_unix_time_seconds:
+          type: integer
+        payout_count:
+          type: integer
+        payout_count_lookback_days:
+          type: integer
+        shared_at:
+          type: string
+      type: object
+    domain.Docs:
+      properties:
+        doc_id:
+          type: string
+        doc_type:
+          type: string
+      type: object
+    domain.MerchantMetadataBusiness:
+      properties:
+        activities:
+          items:
+            type: string
+          type: array
+        activity_codes:
+          items:
+            type: string
+          type: array
+        brand_name:
+          type: string
+        business_type:
+          type: string
+        curp:
+          type: string
+        doc_id:
+          type: string
+        doc_type:
+          type: string
+        docs:
+          items:
+            $ref: '#/components/schemas/domain.MerchantMetadataBusinessDoc'
+          type: array
+        id:
+          type: string
+        industry:
+          type: string
+        ine:
+          type: string
+        legal_representatives:
+          items:
+            $ref: '#/components/schemas/domain.LegalRepresentative'
+          type: array
+        name:
+          type: string
+        rfc:
+          type: string
+        rut:
+          type: string
+      type: object
+    domain.MerchantMetadataAddress:
+      properties:
+        city:
+          type: string
+        colony:
+          type: string
+        comune:
+          type: string
+        floor:
+          type: string
+        municipality:
+          type: string
+        number:
+          type: string
+        number_ext:
+          type: string
+        number_int:
+          type: string
+        region:
+          type: string
+        state:
+          type: string
+        street:
+          type: string
+        zip_code:
+          type: string
+      type: object
+    domain.MerchantMetadata:
+      properties:
+        additional_information:
+          $ref: '#/components/schemas/domain.MerchantMetadataAdditionalInformation'
+        address:
+          $ref: '#/components/schemas/domain.MerchantMetadataAddress'
+        banks:
+          items:
+            $ref: '#/components/schemas/domain.MerchantMetadataBank'
+          type: array
+        business:
+          $ref: '#/components/schemas/domain.MerchantMetadataBusiness'
+        contact:
+          $ref: '#/components/schemas/domain.MerchantMetadataContact'
+        status:
+          description: This should be in a new column
+          type: string
+      type: object
+    domain.MerchantMetadataBusinessDoc:
+      properties:
+        doc_id:
+          type: string
+        doc_type:
+          type: string
+      type: object
+    domain.MerchantMetadataContact:
+      properties:
+        email:
+          type: string
+        phone:
+          type: string
+      type: object
+    domain.LegalRepresentative:
+      properties:
+        curp:
+          type: string
+        doc_id:
+          type: string
+        doc_type:
+          type: string
+        docs:
+          items:
+            $ref: '#/components/schemas/domain.Docs'
+          type: array
+        first_name:
+          type: string
+        id:
+          type: string
+        ine:
+          type: string
+        last_name:
+          type: string
+        name:
+          type: string
+        rfc:
+          type: string
+        rut:
+          type: string
+      type: object
+    domain.Merchant:
+      properties:
+        country_code:
+          type: string
+        created_at:
+          type: string
+        email:
+          type: string
+        environment:
+          type: string
+        external_id:
+          type: string
+        id:
+          type: string
+        metadata:
+          type: object
+        status:
+          type: string
+        updated_at:
+          type: string
+      type: object
+  securitySchemes:
+    JWT:
+      in: header
+      name: Authorization
+      type: apiKey

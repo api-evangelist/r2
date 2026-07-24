@@ -1,0 +1,343 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: support@r2capital.co
+    name: R2 Support
+  description: '## Introduction
+
+    <p>Through our REST APIs, you''ll be able to run an end-to-end capital program for your merchants. Specifically, you will: </br></p>
+
+    <ul>
+
+    <li>Securely share data about your merchants and their transactions so that R2 can score them</li>
+
+    <li>Issue optimal financing offers for your preapproved merchants</li>
+
+    <li>Launch marketing touchpoints so that preapproved merchants learn about their financing offers</li>
+
+    <li>Send or capture specific data about a merchant to run R2''s KYC process</li>
+
+    <li>Learn when a financing has been made along with its specific terms</li>
+
+    <li>Provide sales and/or repayment data on financed merchants</li>
+
+    <li>Retrieve updated balances</li>
+
+    <li>Renew financings</li>
+
+    </ul>
+
+    <p>We have language bindings in Shell. You can view code snippets on the right-hand panel, and you can switch the snippets'' programming language using the tabs above the code view.</br>
+
+    To access our APIs, you need an access token. Please sign-up and get a new access token by registering at our developer portal.</p>'
+  title: R2 APIs callbacks collections API
+  version: '0.1'
+servers:
+- url: https://gateway-dev.r2capital.co:443/v2
+- url: https://gateway-dev.r2capital.co/v2/
+  description: Development environment (DEV)
+tags:
+- name: collections
+paths:
+  /collections/{id}:
+    get:
+      parameters:
+      - description: uuid formatted ID.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  error:
+                    type: string
+                  items:
+                    items:
+                      $ref: '#/components/schemas/domain.Collection'
+                    type: array
+                type: object
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      security:
+      - JWT: []
+      summary: Show a collection by its id as filtering key.
+      tags:
+      - collections
+  /collections/:
+    get:
+      description: Show a list of collections associated to the partner using the given filtering params.
+      parameters:
+      - in: query
+        name: financing_id
+        schema:
+          type: string
+      - in: query
+        name: kind
+        schema:
+          type: string
+          enum:
+          - REGULAR
+          - DIRECT
+          - RETURNED
+      - in: query
+        name: partner_collection_id
+        schema:
+          type: string
+      - in: query
+        name: status
+        schema:
+          type: string
+          enum:
+          - PROCESSED
+          - NOT_PROCESSED
+      - in: query
+        name: page
+        schema:
+          type: integer
+      - in: query
+        name: per_page
+        schema:
+          type: integer
+      - in: query
+        name: sort
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  error:
+                    type: string
+                  items:
+                    items:
+                      $ref: '#/components/schemas/domain.Collection'
+                    type: array
+                type: object
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      security:
+      - JWT: []
+      summary: Show all collections.
+      tags:
+      - collections
+    post:
+      description: 'Important: It only allows collections from one unique financing each time.'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/domain.CollectionRequest'
+              type: array
+        description: collection data
+        required: true
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                properties:
+                  error:
+                    type: string
+                  items:
+                    items:
+                      $ref: '#/components/schemas/domain.CollectionResponse'
+                    type: array
+                type: object
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      security:
+      - JWT: []
+      summary: Add one or more collections.
+      tags:
+      - collections
+components:
+  schemas:
+    domain.Collection:
+      properties:
+        amount_to_dismiss:
+          example: 12.4
+          type: number
+        collected_at:
+          example: '2025-06-03T15:30:00Z'
+          type: string
+        created_at:
+          example: '2023-11-06T18:07:50.093514-03:00'
+          type: string
+        deposited_amount:
+          example: 57.7
+          type: number
+        dismiss_reasons:
+          example:
+          - '[FINANCING_PAID]'
+          items:
+            type: string
+          type: array
+        financing_id:
+          example: 550e8400-e29b-41d4-a716-446655440000
+          type: string
+        gross_sales_amount:
+          example: 500
+          type: number
+        id:
+          example: 550e8400-e29b-41d4-a716-446655440000
+          type: string
+        kind:
+          default: REGULAR
+          enum:
+          - REGULAR
+          - DIRECT
+          - RETURNED
+          example: REGULAR
+          type: string
+        metadata:
+          description: "Metadata represents additional data in JSON format\n\t@Example\t{\"key1\": \"value1\", \"key2\": 123, \"key3\": true, \"key4\": {\"subkey\": \"subvalue\"}}"
+          type: object
+        original_repayment_amount:
+          example: 70.1
+          type: number
+        parent_id:
+          example: 550e8400-e29b-41d4-a716-446655440000
+          type: string
+        partner_collection_id:
+          example: '123456789'
+          type: string
+        partner_id:
+          example: 550e8400-e29b-41d4-a716-446655440000
+          type: string
+        processed_at:
+          example: '2023-11-06T18:07:59.533338-03:00'
+          type: string
+        reason:
+          example:
+          - REFILL_INTEREST_RETURNED
+          items:
+            enum:
+            - REFILL_INTEREST_RETURNED
+            - ' RETURN_FROM_DIRECT_PAYMENT'
+            - ' CANCELLATION_REFUND'
+            - ' ADJUSTMENT_REFUND'
+            - ' COMPLEMENTARY_DIRECT_DEBIT'
+            type: string
+          type: array
+        remaining_balance:
+          example: 1000
+          type: number
+        repayment_amount:
+          example: 70.1
+          type: number
+        status:
+          default: PROCESSED
+          enum:
+          - PROCESSED
+          - NOT_PROCESSED
+          example: PROCESSED
+          type: string
+        total_paid:
+          example: 1000
+          type: number
+        updated_at:
+          example: '2023-11-06T18:07:58.590313-03:00'
+          type: string
+      type: object
+    domain.CollectionResponse:
+      properties:
+        collection_id:
+          example: 550e8400-e29b-41d4-a716-446655440000
+          type: string
+        data:
+          $ref: '#/components/schemas/domain.Data'
+        financing_id:
+          example: 550e8400-e29b-41d4-a716-446655440000
+          type: string
+        message:
+          example: Financing 550e8400-e29b-41d4-a716-446655440000 cap reached
+          type: string
+        partner_collection_id:
+          example: '123456789'
+          type: string
+        success:
+          example: true
+          type: boolean
+      type: object
+    domain.CollectionRequest:
+      properties:
+        collected_at:
+          example: '2025-06-03T15:30:00Z'
+          type: string
+        financing_id:
+          example: 550e8400-e29b-41d4-a716-446655440000
+          type: string
+        gross_sales_amount:
+          example: 1000
+          type: number
+        kind:
+          default: REGULAR
+          enum:
+          - REGULAR
+          - DIRECT
+          - RETURNED
+          example: REGULAR
+          type: string
+        metadata:
+          description: "Metadata represents additional data in JSON format\n\t@Example\t{\"key1\": \"value1\", \"key2\": \"123\"}"
+          type: object
+        partner_collection_id:
+          example: '123456789'
+          type: string
+        repayment_amount:
+          example: 1000
+          type: number
+      required:
+      - collected_at
+      - financing_id
+      - gross_sales_amount
+      - kind
+      - partner_collection_id
+      - repayment_amount
+      type: object
+    domain.Data:
+      properties:
+        amount_to_dismiss:
+          example: 12.4
+          type: number
+        charged_amount:
+          example: 57.7
+          type: number
+        dismiss_reasons:
+          example:
+          - '[FINANCING_PAID]'
+          items:
+            type: string
+          type: array
+        repayment_amount:
+          example: 70.1
+          type: number
+      type: object
+  securitySchemes:
+    JWT:
+      in: header
+      name: Authorization
+      type: apiKey
