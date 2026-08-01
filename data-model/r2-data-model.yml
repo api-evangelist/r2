@@ -1,0 +1,72 @@
+generated: '2026-07-20'
+method: derived
+source:
+- openapi/r2-openapi.json
+- https://r2-api-docs.readme.io/docs/callbacks-1
+summary: >-
+  Entity-relationship graph for R2's embedded-lending domain, derived from the
+  OpenAPI schemas and the event payloads. Ids are opaque strings/UUIDs
+  (financing_id, collection_id, partner_collection_id, external_merchant_id).
+entities:
+- name: Merchant
+  id_field: external_merchant_id
+  schema: domain.Merchant
+  description: A business on the partner platform that R2 scores and finances.
+- name: Offer
+  schema: SeedOffersResponse.items
+  description: A pre-approved financing offer (disbursement_amount, repayment_rate, status, expires_at).
+- name: FinancingApplication
+  schema: FinancingApplicationRequestBody
+  description: A merchant's application for a financing offer.
+- name: Financing
+  id_field: financing_id
+  schema: domain.FinancingsViewAPI
+  description: An issued loan (disbursed_amount, total_repayment_amount, repayment_rate, currency, status, kind REGULAR|REFILL).
+- name: Transaction
+  schema: transactions.Transaction
+  description: Sales/repayment transaction data shared for a financing.
+- name: Collection
+  id_field: collection_id
+  schema: domain.Collection
+  description: A repayment collection against a financing (repayment_amount, remaining_balance, kind DIRECT|REFILL).
+- name: Callback
+  id_field: id
+  schema: callbacks.Callback
+  description: A partner-registered event callback (webhook) URL.
+- name: Event
+  id_field: id
+  schema: events.EventWrite
+  description: An emitted event (event_time, event_type, event_metadata).
+relationships:
+- from: Financing
+  to: Merchant
+  kind: belongs_to
+  via: external_merchant_id
+- from: Offer
+  to: Merchant
+  kind: belongs_to
+  via: merchant
+- from: FinancingApplication
+  to: Merchant
+  kind: belongs_to
+  via: merchant
+- from: Transaction
+  to: Financing
+  kind: belongs_to
+  via: financing_id
+- from: Collection
+  to: Financing
+  kind: belongs_to
+  via: financing_id
+- from: Collection
+  to: Collection
+  kind: has_one
+  via: related_collection_id
+- from: Event
+  to: Financing
+  kind: references
+  via: financing
+- from: Event
+  to: Collection
+  kind: references
+  via: collection

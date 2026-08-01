@@ -1,0 +1,57 @@
+generated: '2026-07-20'
+method: searched
+source: https://r2-api-docs.readme.io/docs/initialize-an-embeddable-component
+summary: >-
+  R2 ships its embedded finance "Experience" as standalone JavaScript component
+  libraries loaded from its CDN (assets.r2capital.co). Each component is
+  initialized against a DOM anchor with a partner-generated JWT (auth) and an
+  optional light/dark mode, and exposes a Ready() promise plus DOM CustomEvents.
+loader_host: https://assets.r2capital.co
+config_options:
+- attribute: auth
+  type: string (required)
+  description: Generated JWT token that uniquely identifies a merchant.
+- attribute: mode
+  type: string
+  default: light
+  description: light or dark color palette.
+frameworks_documented:
+- React (useScript)
+- Angular
+- AngularJS
+- Mobile (WebView with camera/files/location permissions)
+components:
+- name: Own Lending Experience
+  exposed_var: R2Ole
+  description: Offer loans based on transactional data.
+  prod_url: https://assets.r2capital.co/ole/r2-ole.js
+  dev_url: https://assets.r2capital.co/ole/r2-ole_dev.js
+- name: Payments Plus
+  exposed_var: R2PaymentsPlus
+  description: Leverage payments to your merchants through R2.
+  prod_url: https://assets.r2capital.co/payments-plus/r2-payments-plus.js
+  dev_url: https://assets.r2capital.co/payments-plus/r2-payments-plus_dev.js
+dom_events:
+- name: TCS_ACCEPTED
+  key: R2|TCs_ACCEPTED
+  data: '{"id": "EXTERNAL_MID", "business_type": "Natural|Juridico"}'
+  description: Merchant accepts sharing PII data; cue to send PII to R2 via webhooks.
+- name: LOAN_REQUEST
+  key: R2|LOAN_REQUEST
+  data: '{"in_progress": bool}'
+  description: Merchant enters or leaves the loan application form.
+- name: LOAN_REQUEST_COMPLETED
+  key: R2|LOAN_REQUEST_COMPLETED
+  data: '{"id": "EXTERNAL_MID"}'
+  description: Fired once after the merchant completes all loan application steps with an OK response.
+csp_domains:
+  docs: https://r2-api-docs.readme.io/docs/content-security-policy-csp
+  required:
+  - https://docucdn-a.akamaihd.net
+  - https://na4.docusign.net
+  - https://demo.docusign.net
+  - https://*.amplitude.com
+  - https://*.customer.io
+  - https://*.r2.co
+  - https://*.r2capital.co
+  - https://*.ingest.us.sentry.io

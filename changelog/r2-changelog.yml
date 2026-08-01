@@ -1,0 +1,19 @@
+generated: '2026-07-20'
+method: searched
+source: https://r2-api-docs.readme.io/changelog
+scheme: semver
+current_version: 1.2.1
+entries:
+- version: 1.2.0
+  url: https://r2-api-docs.readme.io/changelog/v120
+  breaking:
+  - POST transactions (sync) endpoint removed.
+  - GET transactions and GET collections endpoints removed.
+  - Collections endpoint removed; the payments endpoint replaces collection creation with several collection kinds.
+  additions:
+  - New event callbacks added — collection_returned_by_insurance, direct_payment_created_by_insurance, financing_interest_charged, financing_paid_by_insurance, financing_paused_by_insurance, financing_write_off.
+  - "financing_created event: new fields offer_amount and category added."
+- version: welcome
+  url: https://r2-api-docs.readme.io/changelog/welcome-to-r2-api-docs
+  highlights:
+  - Launch of the R2 API developer hub and documentation.

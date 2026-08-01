@@ -1,0 +1,22 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for R2 APIs
+  version: 1.0.0
+extends: openapi/r2-openapi.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-enriched: '2026-07-20'
+    x-apievangelist-provider: r2
+    x-apievangelist-notes: >-
+      Spec reconstructed from R2's per-operation OpenAPI definitions published on
+      the ReadMe developer hub (r2-api-docs.readme.io). Authorization is a
+      partner-signed HS256 JWT in the Authorization header. Events are delivered
+      as HMAC-SHA256-signed webhooks (see asyncapi/r2-events-webhooks.yml).
+- target: $.info
+  update:
+    x-agent-readiness:
+      auth: JWT (apiKey header)
+      webhooks: true
+      sandbox: true
+      idempotency: false

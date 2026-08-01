@@ -1,0 +1,64 @@
+generated: '2026-07-20'
+method: derived
+status: candidate
+source: openapi/r2-openapi.json
+note: >-
+  No official hosted R2 MCP server was found. This is a candidate tool list
+  derived one-per-operation from the harvested OpenAPI, for exposing the R2
+  embedded-finance API to agents. Operations carry no operationIds in the spec,
+  so tools are keyed by method + path.
+server:
+  name: r2
+  transport: http
+tools:
+- name: add_transactions
+  description: Add one or more transactions (single financing per request).
+  source_operation: openapi/r2-openapi.json#POST /transactions/
+- name: add_transactions_async
+  description: Create transactions asynchronously for the partner.
+  source_operation: openapi/r2-openapi.json#POST /transactions/async
+- name: get_transaction
+  description: Show a transaction by its id.
+  source_operation: openapi/r2-openapi.json#GET /transactions/{id}
+- name: list_financings
+  description: Show all financings associated to the partner.
+  source_operation: openapi/r2-openapi.json#GET /financings/
+- name: get_financing
+  description: Show a financing by its id.
+  source_operation: openapi/r2-openapi.json#GET /financings/{id}
+- name: list_collections
+  description: Show all collections associated to the partner.
+  source_operation: openapi/r2-openapi.json#GET /collections/
+- name: add_collections
+  description: Add one or more collections (single financing per request).
+  source_operation: openapi/r2-openapi.json#POST /collections/
+- name: get_collection
+  description: Show a collection by its id.
+  source_operation: openapi/r2-openapi.json#GET /collections/{id}
+- name: refund_collection
+  description: Partially refund one collection (by R2 collection id).
+  source_operation: openapi/r2-openapi.json#POST /api/payments/payin/refund/{id}
+- name: revert_collection
+  description: Revert one collection (by R2 collection id).
+  source_operation: openapi/r2-openapi.json#POST /api/payments/payin/revert/{id}
+- name: list_callbacks
+  description: Show all registered event callbacks.
+  source_operation: openapi/r2-openapi.json#GET /callbacks/
+- name: add_callback
+  description: Register a new event callback URL.
+  source_operation: openapi/r2-openapi.json#POST /callbacks/
+- name: get_callback
+  description: Show a callback by its id.
+  source_operation: openapi/r2-openapi.json#GET /callbacks/{id}
+- name: update_callback
+  description: Update a callback.
+  source_operation: openapi/r2-openapi.json#PUT /callbacks/{id}
+- name: get_event
+  description: Show an event by its id.
+  source_operation: openapi/r2-openapi.json#GET /events/{id}
+- name: process_merchant
+  description: Process a merchant by external id.
+  source_operation: openapi/r2-openapi.json#PATCH /webhooks/merchants/{external_id}
+- name: create_sandbox_scenario
+  description: Seed test merchants, offers, financings, and applications.
+  source_operation: openapi/r2-openapi.json#POST /sandbox/scenarios

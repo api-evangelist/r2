@@ -1,0 +1,28 @@
+generated: '2026-07-20'
+method: generated
+source: openapi/r2-openapi.json
+skills:
+- file: r2-share-merchant-transactions.md
+  name: Onboard a merchant and share transaction data
+  api: openapi/r2-openapi.json
+  operations:
+  - PATCH /webhooks/merchants/{external_id}
+  - POST /transactions/
+  - POST /transactions/async
+  - GET /financings/
+- file: r2-events-callbacks.md
+  name: Register and handle R2 event callbacks (webhooks)
+  api: openapi/r2-openapi.json
+  operations:
+  - POST /callbacks/
+  - GET /callbacks/
+  - PUT /callbacks/{id}
+  - GET /events/{id}
+- file: r2-refund-revert-collection.md
+  name: Refund or revert a collection
+  api: openapi/r2-openapi.json
+  operations:
+  - GET /collections/
+  - GET /collections/{id}
+  - POST /api/payments/payin/refund/{id}
+  - POST /api/payments/payin/revert/{id}

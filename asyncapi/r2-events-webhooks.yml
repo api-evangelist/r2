@@ -1,0 +1,101 @@
+generated: '2026-07-20'
+method: searched
+spec_type: Webhooks
+source: https://r2-api-docs.readme.io/docs/events_overview
+docs:
+- https://r2-api-docs.readme.io/docs/events_overview
+- https://r2-api-docs.readme.io/docs/walkthrough
+- https://r2-api-docs.readme.io/docs/callbacks-1
+summary: >-
+  R2 delivers real-time events ("callbacks", aka webhooks) as HTTP POST requests
+  from R2's servers to a partner-configured callback URL. Payloads always carry
+  an `event` object (event_time, event_type, event_metadata) plus a domain
+  object (financing / collection / application / payment) depending on the event.
+transport: http-post
+content_type: application/json
+callback_registration:
+  method: PUT
+  path: /callbacks
+  note: Set the account/app callback URL via the callbacks API or the Partners web UI.
+acknowledgement:
+  expected_status: 200
+  expected_body: "R2 API Event Received"
+  note: A non-matching or missing response is treated as a failed delivery and retried.
+security:
+  signature_header: Content-Sha256
+  signature_scheme: base64(HMAC-SHA256(payload, jwtSecret))
+  user_agent: R2 API
+  ip_allowlist:
+    prod:
+    - 54.215.38.39/32
+    dev:
+    - 54.151.119.16/32
+retries:
+  max_attempts: 6
+  timeout_seconds: 30
+  schedule:
+  - {attempt: 1, delay: 5min}
+  - {attempt: 2, delay: 15min}
+  - {attempt: 3, delay: 45min}
+  - {attempt: 4, delay: 2h15min}
+  - {attempt: 5, delay: 6h45min}
+  - {attempt: 6, delay: 20h15min}
+  on_exhaustion: Callback URL is cleared; partner must re-register it.
+consumer_responsibility: >-
+  Partners must implement duplicate-detection; R2 guarantees delivery, not
+  exactly-once, so events may be re-sent.
+events:
+- type: financing_created
+  object: FinancingEvent
+  description: A new financing has just been created on R2's platform.
+- type: financing_paused
+  object: FinancingEvent
+  description: Charges over this financing are not being made (country/regulatory reasons).
+- type: financing_resumed
+  object: FinancingEvent
+  description: Charges over this financing are being collected normally again.
+- type: financing_paid
+  object: FinancingEvent
+  description: The financing has been paid.
+- type: financing_active
+  object: FinancingEvent
+  description: Financing re-activated after a revert or refund.
+- type: financing_canceled
+  object: FinancingEvent
+  description: The financing was cancelled.
+- type: direct_payment_created
+  object: CollectionEvent
+  description: A new direct payment was made and reported to R2's team.
+- type: collection_created
+  object: CollectionEvent
+  description: A new collection was created on R2's platform.
+  production: false
+- type: collection_rejected
+  object: CollectionEvent
+  description: A collection was not created on R2's platform.
+  production: false
+- type: collection_returned
+  object: CollectionEvent
+  description: Total or partial refund of a related collection.
+- type: retention_created
+  object: RetentionEvent
+  description: Total amount of collections created for a specific period.
+  production: false
+- type: collection_returned_by_insurance
+  object: CollectionEvent
+  description: Added in v1.2.0.
+- type: direct_payment_created_by_insurance
+  object: CollectionEvent
+  description: Added in v1.2.0.
+- type: financing_interest_charged
+  object: FinancingEvent
+  description: Added in v1.2.0.
+- type: financing_paid_by_insurance
+  object: FinancingEvent
+  description: Added in v1.2.0.
+- type: financing_paused_by_insurance
+  object: FinancingEvent
+  description: Added in v1.2.0.
+- type: financing_write_off
+  object: FinancingEvent
+  description: Added in v1.2.0.

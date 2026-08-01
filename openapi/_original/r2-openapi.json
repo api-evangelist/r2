@@ -1,0 +1,2508 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "contact": {
+      "email": "support@r2capital.co",
+      "name": "R2 Support"
+    },
+    "description": "## Introduction\n<p>Through our REST APIs, you'll be able to run an end-to-end capital program for your merchants. Specifically, you will: </br></p>\n<ul>\n<li>Securely share data about your merchants and their transactions so that R2 can score them</li>\n<li>Issue optimal financing offers for your preapproved merchants</li>\n<li>Launch marketing touchpoints so that preapproved merchants learn about their financing offers</li>\n<li>Send or capture specific data about a merchant to run R2's KYC process</li>\n<li>Learn when a financing has been made along with its specific terms</li>\n<li>Provide sales and/or repayment data on financed merchants</li>\n<li>Retrieve updated balances</li>\n<li>Renew financings</li>\n</ul>\n<p>We have language bindings in Shell. You can view code snippets on the right-hand panel, and you can switch the snippets' programming language using the tabs above the code view.</br>\nTo access our APIs, you need an access token. Please sign-up and get a new access token by registering at our developer portal.</p>",
+    "title": "R2 APIs",
+    "version": "0.1"
+  },
+  "servers": [
+    {
+      "url": "https://gateway-dev.r2capital.co:443/v2"
+    },
+    {
+      "url": "https://gateway-dev.r2capital.co/v2/",
+      "description": "Development environment (DEV)"
+    }
+  ],
+  "paths": {
+    "/callbacks/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "uuid formatted ID.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "items": {
+                      "items": {
+                        "$ref": "#/components/schemas/callbacks.Callback"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "summary": "Show a callback by its id as filtering key.",
+        "tags": [
+          "callbacks"
+        ]
+      },
+      "put": {
+        "parameters": [
+          {
+            "description": "uuid formatted ID.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/callbacks.CallbackRequestArray"
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "items": {
+                      "items": {
+                        "$ref": "#/components/schemas/callbacks.Callback"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "summary": "Update a callback.",
+        "tags": [
+          "callbacks"
+        ]
+      }
+    },
+    "/callbacks/": {
+      "get": {
+        "description": "Show a list of callbacks associated to the partner using the given filtering params.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "per_page",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "items": {
+                      "items": {
+                        "$ref": "#/components/schemas/callbacks.Callback"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "summary": "Show all callbacks.",
+        "tags": [
+          "callbacks"
+        ]
+      },
+      "post": {
+        "description": "Important: It only allows callbacks from one unique financing each time.",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/callbacks.CallbackRequestArray"
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "items": {
+                      "items": {
+                        "$ref": "#/components/schemas/callbacks.Callback"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "summary": "Add a new callback.",
+        "tags": [
+          "callbacks"
+        ]
+      }
+    },
+    "/collections/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "uuid formatted ID.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "items": {
+                      "items": {
+                        "$ref": "#/components/schemas/domain.Collection"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "summary": "Show a collection by its id as filtering key.",
+        "tags": [
+          "collections"
+        ]
+      }
+    },
+    "/collections/": {
+      "get": {
+        "description": "Show a list of collections associated to the partner using the given filtering params.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "financing_id",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "kind",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "REGULAR",
+                "DIRECT",
+                "RETURNED"
+              ]
+            }
+          },
+          {
+            "in": "query",
+            "name": "partner_collection_id",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "PROCESSED",
+                "NOT_PROCESSED"
+              ]
+            }
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "per_page",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "items": {
+                      "items": {
+                        "$ref": "#/components/schemas/domain.Collection"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "summary": "Show all collections.",
+        "tags": [
+          "collections"
+        ]
+      },
+      "post": {
+        "description": "Important: It only allows collections from one unique financing each time.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "items": {
+                  "$ref": "#/components/schemas/domain.CollectionRequest"
+                },
+                "type": "array"
+              }
+            }
+          },
+          "description": "collection data",
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "items": {
+                      "items": {
+                        "$ref": "#/components/schemas/domain.CollectionResponse"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "summary": "Add one or more collections.",
+        "tags": [
+          "collections"
+        ]
+      }
+    },
+    "/events/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "uuid formatted ID.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "items": {
+                      "items": {
+                        "$ref": "#/components/schemas/events.EventWrite"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "summary": "Show a callback by its id as filtering key.",
+        "tags": [
+          "events"
+        ]
+      }
+    },
+    "/financings/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "uuid formatted ID.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "items": {
+                      "items": {
+                        "$ref": "#/components/schemas/domain.FinancingsViewAPI"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "summary": "Show a financing by its id.",
+        "tags": [
+          "financings"
+        ]
+      }
+    },
+    "/financings/": {
+      "get": {
+        "description": "Show a list of financings associated to the partner.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "financing_id",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "kind",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "REGULAR",
+                "DIRECT",
+                "RETURNED"
+              ]
+            }
+          },
+          {
+            "in": "query",
+            "name": "partner_collection_id",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "PROCESSED",
+                "NOT_PROCESSED"
+              ]
+            }
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "per_page",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "items": {
+                      "items": {
+                        "$ref": "#/components/schemas/domain.FinancingsViewAPI"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "summary": "Show all financings.",
+        "tags": [
+          "financings"
+        ]
+      }
+    },
+    "/transactions/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "uuid formatted ID.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "items": {
+                      "items": {
+                        "$ref": "#/components/schemas/transactions.Transaction"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "summary": "Show a Transaction by its id.",
+        "tags": [
+          "transactions"
+        ]
+      }
+    },
+    "/webhooks/merchants/{external_id}": {
+      "patch": {
+        "description": "Process a merchant.",
+        "parameters": [
+          {
+            "description": "external_id",
+            "in": "path",
+            "name": "external_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "api_key",
+            "in": "query",
+            "name": "api_key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/domain.MerchantMetadata"
+              }
+            }
+          },
+          "description": "body",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "items": {
+                      "items": {
+                        "$ref": "#/components/schemas/domain.Merchant"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "summary": "Process a merchant.",
+        "tags": [
+          "merchants"
+        ]
+      }
+    },
+    "/api/payments/payin/refund/{id}": {
+      "post": {
+        "description": "Important: We are expecting the R2 collection id.",
+        "parameters": [
+          {
+            "description": "uuid formatted R2 collection ID.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/paymentsdomain.RefundRequest"
+              }
+            }
+          },
+          "description": "collection amount to refund, it should be a negative amount",
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "items": {
+                      "items": {
+                        "$ref": "#/components/schemas/paymentsdomain.RefundPaymentResponse"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "items": {
+                      "items": {
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "items": {
+                      "items": {
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "summary": "Refund partially one collection.",
+        "tags": [
+          "payments"
+        ]
+      }
+    },
+    "/api/payments/payin/revert/{id}": {
+      "post": {
+        "description": "Important: We are expecting the R2 collection id.",
+        "parameters": [
+          {
+            "description": "uuid formatted R2 collection ID.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "items": {
+                      "items": {
+                        "$ref": "#/components/schemas/paymentsdomain.RevertCollectionResponse"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "items": {
+                      "items": {
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "items": {
+                      "items": {
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "summary": "Revert one collection.",
+        "tags": [
+          "payments"
+        ]
+      }
+    },
+    "/sandbox/scenarios": {
+      "post": {
+        "summary": "Create scenarios for testing purposes",
+        "description": "Based on the provided scenario and metadata, this endpoint can create or restore merchants,\nand create offers, financings, and applications.\n",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "JWT token, without merchant id.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Seed offers or financing application response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/SeedOffersResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/FinancingApplicationRequestBody"
+                    }
+                  ]
+                },
+                "examples": {
+                  "seed_offers_response": {
+                    "summary": "Example of a seed_offers scenario response",
+                    "value": {
+                      "items": [
+                        {
+                          "id": "12e56130-8e25-4ac4-97a4-c981dd5f366c",
+                          "disbursement_amount": {
+                            "currencyCode": "USD",
+                            "amountE5": 25000000
+                          },
+                          "repayment_rate": 20.5,
+                          "status": "AVAILABLE",
+                          "expires_at": 1730851200000
+                        }
+                      ],
+                      "error": null
+                    }
+                  },
+                  "financing_application_response": {
+                    "summary": "Example of a financing_active scenario response",
+                    "value": {
+                      "application_id": "123e4567-e89b-12d3-a456-426614174000",
+                      "financing_id": "223e4567-e89b-12d3-a456-426614174000",
+                      "features": {
+                        "disbursement_amount": 1000,
+                        "repayment_rate": 10,
+                        "total_repayment_amount": 1100
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "[API002] bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SeedOffersResponse"
+                },
+                "examples": {
+                  "bad_request": {
+                    "value": {
+                      "items": null,
+                      "error": "[API002] bad request"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "[API001] resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SeedOffersResponse"
+                },
+                "examples": {
+                  "not_found": {
+                    "value": {
+                      "items": null,
+                      "error": "[API001] resource not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "[API004] conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SeedOffersResponse"
+                },
+                "examples": {
+                  "conflict": {
+                    "value": {
+                      "items": null,
+                      "error": "[API004] conflict"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "[API003] cannot process request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SeedOffersResponse"
+                },
+                "examples": {
+                  "cannot_process": {
+                    "value": {
+                      "items": null,
+                      "error": "[API003] cannot process request"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "[API005] rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SeedOffersResponse"
+                },
+                "examples": {
+                  "rate_limit": {
+                    "value": {
+                      "items": null,
+                      "error": "[API005] rate limit exceeded"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "[API006] internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SeedOffersResponse"
+                },
+                "examples": {
+                  "internal_error": {
+                    "value": {
+                      "items": null,
+                      "error": "[API006] internal server error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/transactions/async": {
+      "post": {
+        "description": "Create a list of transactions associated to the partner.",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/transactions.transactionRequestArray"
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "items": {
+                      "items": {
+                        "$ref": "#/components/schemas/transactions.Transaction"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "summary": "Create transactions asynchronously.",
+        "tags": [
+          "transactions"
+        ]
+      }
+    },
+    "/transactions/": {
+      "post": {
+        "description": "Important: It only allows transactions from one unique financing each time.",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/transactions.transactionRequestArray"
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "items": {
+                      "items": {
+                        "$ref": "#/components/schemas/transactions.Transaction"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "summary": "Add one or more transactions.",
+        "tags": [
+          "transactions"
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "JWT": {
+        "in": "header",
+        "name": "Authorization",
+        "type": "apiKey"
+      }
+    },
+    "schemas": {
+      "callbacks.Callback": {
+        "properties": {
+          "created_at": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "domain.Collection": {
+        "properties": {
+          "amount_to_dismiss": {
+            "example": 12.4,
+            "type": "number"
+          },
+          "collected_at": {
+            "example": "2025-06-03T15:30:00Z",
+            "type": "string"
+          },
+          "created_at": {
+            "example": "2023-11-06T18:07:50.093514-03:00",
+            "type": "string"
+          },
+          "deposited_amount": {
+            "example": 57.7,
+            "type": "number"
+          },
+          "dismiss_reasons": {
+            "example": [
+              "[FINANCING_PAID]"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "financing_id": {
+            "example": "550e8400-e29b-41d4-a716-446655440000",
+            "type": "string"
+          },
+          "gross_sales_amount": {
+            "example": 500,
+            "type": "number"
+          },
+          "id": {
+            "example": "550e8400-e29b-41d4-a716-446655440000",
+            "type": "string"
+          },
+          "kind": {
+            "default": "REGULAR",
+            "enum": [
+              "REGULAR",
+              "DIRECT",
+              "RETURNED"
+            ],
+            "example": "REGULAR",
+            "type": "string"
+          },
+          "metadata": {
+            "description": "Metadata represents additional data in JSON format\n\t@Example\t{\"key1\": \"value1\", \"key2\": 123, \"key3\": true, \"key4\": {\"subkey\": \"subvalue\"}}",
+            "type": "object"
+          },
+          "original_repayment_amount": {
+            "example": 70.1,
+            "type": "number"
+          },
+          "parent_id": {
+            "example": "550e8400-e29b-41d4-a716-446655440000",
+            "type": "string"
+          },
+          "partner_collection_id": {
+            "example": "123456789",
+            "type": "string"
+          },
+          "partner_id": {
+            "example": "550e8400-e29b-41d4-a716-446655440000",
+            "type": "string"
+          },
+          "processed_at": {
+            "example": "2023-11-06T18:07:59.533338-03:00",
+            "type": "string"
+          },
+          "reason": {
+            "example": [
+              "REFILL_INTEREST_RETURNED"
+            ],
+            "items": {
+              "enum": [
+                "REFILL_INTEREST_RETURNED",
+                " RETURN_FROM_DIRECT_PAYMENT",
+                " CANCELLATION_REFUND",
+                " ADJUSTMENT_REFUND",
+                " COMPLEMENTARY_DIRECT_DEBIT"
+              ],
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "remaining_balance": {
+            "example": 1000,
+            "type": "number"
+          },
+          "repayment_amount": {
+            "example": 70.1,
+            "type": "number"
+          },
+          "status": {
+            "default": "PROCESSED",
+            "enum": [
+              "PROCESSED",
+              "NOT_PROCESSED"
+            ],
+            "example": "PROCESSED",
+            "type": "string"
+          },
+          "total_paid": {
+            "example": 1000,
+            "type": "number"
+          },
+          "updated_at": {
+            "example": "2023-11-06T18:07:58.590313-03:00",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "events.EventWrite": {
+        "properties": {
+          "data": {
+            "type": "object"
+          },
+          "id": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "stream_id": {
+            "type": "string"
+          },
+          "stream_kind": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          },
+          "transition": {
+            "$ref": "#/components/schemas/events.Transition"
+          },
+          "version": {
+            "default": 1,
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "events.Transition": {
+        "properties": {
+          "client": {
+            "type": "string"
+          },
+          "from": {
+            "type": "string"
+          },
+          "to": {
+            "type": "string"
+          },
+          "user": {
+            "description": "systemx",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "domain.FinancingsViewAPI": {
+        "properties": {
+          "amount": {
+            "type": "number"
+          },
+          "amount_to_disburse": {
+            "type": "number"
+          },
+          "application_id": {
+            "description": "The application associated with the financing  (UUIDv4)",
+            "example": "74ed597b-63f3-479f-a17a-77d7fe265599",
+            "type": "string",
+            "x-order": "02"
+          },
+          "balance": {
+            "description": "Remaining amount to be paid",
+            "example": 200342.19,
+            "type": "number",
+            "x-order": "11"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "due_date": {
+            "description": "Due date for this financing",
+            "example": "2023-03-25",
+            "type": "string",
+            "x-order": "07"
+          },
+          "external_id": {
+            "description": "The merchant associated with the financing (partner's internal merchant identification)",
+            "example": "15HBB34",
+            "type": "string",
+            "x-order": "04"
+          },
+          "fixed_fee": {
+            "description": "Fee charged over the principal amount",
+            "example": 12453.67,
+            "type": "number",
+            "x-order": "08"
+          },
+          "id": {
+            "description": "The financing identification (UUIDv4)",
+            "example": "b6a34301-4910-4a8b-8d2d-998180e219a7",
+            "type": "string",
+            "x-order": "01"
+          },
+          "insurance_fee": {
+            "example": 998.34,
+            "type": "number",
+            "x-order": "10"
+          },
+          "loan_taker": {
+            "type": "string"
+          },
+          "loan_taker_short_name": {
+            "description": "The loan taker associated with the financing",
+            "example": "15HBB34",
+            "type": "string",
+            "x-order": "14"
+          },
+          "merchant_id": {
+            "description": "The merchant associated with the financing (internal to R2) (UUIDv4)",
+            "example": "444a1c09-473b-4019-a280-53e1d5604773",
+            "type": "string",
+            "x-order": "03"
+          },
+          "offer_id": {
+            "example": "74ed597b-63f3-479f-a17a-77d7fe265599",
+            "type": "string",
+            "x-order": "02"
+          },
+          "paid_percentage": {
+            "description": "Percentage paid",
+            "example": 50.04,
+            "type": "number",
+            "x-order": "13"
+          },
+          "paid_total": {
+            "description": "Amount already paid",
+            "example": 200656.15,
+            "type": "number",
+            "x-order": "12"
+          },
+          "partner_id": {
+            "type": "string"
+          },
+          "product_category": {
+            "enum": [
+              "RBF_TERM",
+              "RBF_FLEX",
+              "INSTALLMENT_SIMPLE",
+              "RBF_FLEX_AMORTIZED"
+            ],
+            "example": "RBF_TERM",
+            "type": "string"
+          },
+          "repayment_rate": {
+            "description": "Percentage to be deducted from the merchant's sales",
+            "example": 25.23,
+            "type": "number",
+            "x-order": "09"
+          },
+          "start_date": {
+            "description": "The date when this financing started",
+            "example": "2022-05-20",
+            "type": "string",
+            "x-order": "06"
+          },
+          "status": {
+            "description": "Financing current status",
+            "enum": [
+              "INITIALIZED",
+              "ACTIVE",
+              "PAID"
+            ],
+            "example": "ACTIVE",
+            "type": "string",
+            "x-order": "05"
+          },
+          "status_reasons": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "subcategory": {
+            "type": "string"
+          },
+          "term": {
+            "description": "Number of days to pay the financing",
+            "example": 240,
+            "type": "integer"
+          },
+          "total_repayment_amount": {
+            "description": "Total amount to be paid",
+            "example": 400998.34,
+            "type": "number",
+            "x-order": "10"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "transactions.Transaction": {
+        "properties": {
+          "amount": {
+            "example": 100.5,
+            "type": "number"
+          },
+          "category": {
+            "example": "REGULAR",
+            "type": "string"
+          },
+          "created_at": {
+            "example": "2023-11-01T00:00:00Z",
+            "type": "string"
+          },
+          "currency": {
+            "enum": [
+              "MXN",
+              "CLP",
+              "COP"
+            ],
+            "example": "MXN",
+            "type": "string"
+          },
+          "external_id": {
+            "example": "1234567890",
+            "type": "string"
+          },
+          "id": {
+            "example": "123e4567-e89b-12d3-a456-426614174000",
+            "type": "string"
+          },
+          "metadata": {
+            "type": "object"
+          },
+          "occurred_at": {
+            "example": "2023-01-25T07:00:18.00580Z",
+            "format": "date",
+            "type": "string"
+          },
+          "partner_transaction_id": {
+            "example": "1234567890",
+            "type": "string"
+          },
+          "updated_at": {
+            "example": "2023-11-01T00:00:00Z",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "domain.Docs": {
+        "properties": {
+          "doc_id": {
+            "type": "string"
+          },
+          "doc_type": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "domain.LegalRepresentative": {
+        "properties": {
+          "curp": {
+            "type": "string"
+          },
+          "doc_id": {
+            "type": "string"
+          },
+          "doc_type": {
+            "type": "string"
+          },
+          "docs": {
+            "items": {
+              "$ref": "#/components/schemas/domain.Docs"
+            },
+            "type": "array"
+          },
+          "first_name": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "ine": {
+            "type": "string"
+          },
+          "last_name": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "rfc": {
+            "type": "string"
+          },
+          "rut": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "domain.Merchant": {
+        "properties": {
+          "country_code": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "environment": {
+            "type": "string"
+          },
+          "external_id": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "metadata": {
+            "type": "object"
+          },
+          "status": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "domain.MerchantMetadata": {
+        "properties": {
+          "additional_information": {
+            "$ref": "#/components/schemas/domain.MerchantMetadataAdditionalInformation"
+          },
+          "address": {
+            "$ref": "#/components/schemas/domain.MerchantMetadataAddress"
+          },
+          "banks": {
+            "items": {
+              "$ref": "#/components/schemas/domain.MerchantMetadataBank"
+            },
+            "type": "array"
+          },
+          "business": {
+            "$ref": "#/components/schemas/domain.MerchantMetadataBusiness"
+          },
+          "contact": {
+            "$ref": "#/components/schemas/domain.MerchantMetadataContact"
+          },
+          "status": {
+            "description": "This should be in a new column",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "domain.MerchantMetadataAdditionalInformation": {
+        "type": "object"
+      },
+      "domain.MerchantMetadataAddress": {
+        "properties": {
+          "city": {
+            "type": "string"
+          },
+          "colony": {
+            "type": "string"
+          },
+          "comune": {
+            "type": "string"
+          },
+          "floor": {
+            "type": "string"
+          },
+          "municipality": {
+            "type": "string"
+          },
+          "number": {
+            "type": "string"
+          },
+          "number_ext": {
+            "type": "string"
+          },
+          "number_int": {
+            "type": "string"
+          },
+          "region": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "street": {
+            "type": "string"
+          },
+          "zip_code": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "domain.MerchantMetadataBank": {
+        "properties": {
+          "account_number": {
+            "type": "string"
+          },
+          "account_type": {
+            "type": "string"
+          },
+          "bank_name": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "disbursement_info": {
+            "$ref": "#/components/schemas/domain.MerchantMetadataBankDisbursementInfo"
+          },
+          "doc_id": {
+            "type": "string"
+          },
+          "doc_type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "rfc": {
+            "type": "string"
+          },
+          "rut": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "domain.MerchantMetadataBankDisbursementInfo": {
+        "properties": {
+          "first_payout_unix_time_seconds": {
+            "type": "integer"
+          },
+          "last_payout_unix_time_seconds": {
+            "type": "integer"
+          },
+          "payout_count": {
+            "type": "integer"
+          },
+          "payout_count_lookback_days": {
+            "type": "integer"
+          },
+          "shared_at": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "domain.MerchantMetadataBusiness": {
+        "properties": {
+          "activities": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "activity_codes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "brand_name": {
+            "type": "string"
+          },
+          "business_type": {
+            "type": "string"
+          },
+          "curp": {
+            "type": "string"
+          },
+          "doc_id": {
+            "type": "string"
+          },
+          "doc_type": {
+            "type": "string"
+          },
+          "docs": {
+            "items": {
+              "$ref": "#/components/schemas/domain.MerchantMetadataBusinessDoc"
+            },
+            "type": "array"
+          },
+          "id": {
+            "type": "string"
+          },
+          "industry": {
+            "type": "string"
+          },
+          "ine": {
+            "type": "string"
+          },
+          "legal_representatives": {
+            "items": {
+              "$ref": "#/components/schemas/domain.LegalRepresentative"
+            },
+            "type": "array"
+          },
+          "name": {
+            "type": "string"
+          },
+          "rfc": {
+            "type": "string"
+          },
+          "rut": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "domain.MerchantMetadataBusinessDoc": {
+        "properties": {
+          "doc_id": {
+            "type": "string"
+          },
+          "doc_type": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "domain.MerchantMetadataContact": {
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "paymentsdomain.RefundPaymentResponse": {
+        "properties": {
+          "error": {
+            "example": "In case of error here is a message",
+            "type": "string"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/paymentsdomain.RevertCollectionResponse"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "paymentsdomain.RefundRequest": {
+        "properties": {
+          "amount": {
+            "example": -70.1,
+            "type": "number"
+          },
+          "gross_sales_amount": {
+            "example": 70.1,
+            "type": "number"
+          },
+          "id": {
+            "type": "string"
+          },
+          "metadata": {
+            "type": "object"
+          },
+          "partner_collection_id": {
+            "example": "550e8400-e29b-41d4-a716-446655440000",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "paymentsdomain.RevertCollectionResponse": {
+        "properties": {
+          "collection_id": {
+            "example": "550e8400-e29b-41d4-a716-446655440000",
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/paymentsdomain.RevertData"
+          },
+          "financing_id": {
+            "example": "550e8400-e29b-41d4-a716-446655440001",
+            "type": "string"
+          },
+          "message": {
+            "example": "A revert or refund collection related to parent id was added",
+            "type": "string"
+          },
+          "parent_id": {
+            "example": "550e8400-e29b-41d4-a716-446655440002",
+            "type": "string"
+          },
+          "partner_collection_id": {
+            "type": "string"
+          },
+          "success": {
+            "example": true,
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "paymentsdomain.RevertData": {
+        "properties": {
+          "amount_to_dismiss": {
+            "example": 0,
+            "type": "number"
+          },
+          "charged_amount": {
+            "example": -70.1,
+            "type": "number"
+          },
+          "repayment_amount": {
+            "example": -70.1,
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "callbacks.CallbackRequest": {
+        "properties": {
+          "url": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "domain.CollectionRequest": {
+        "properties": {
+          "collected_at": {
+            "example": "2025-06-03T15:30:00Z",
+            "type": "string"
+          },
+          "financing_id": {
+            "example": "550e8400-e29b-41d4-a716-446655440000",
+            "type": "string"
+          },
+          "gross_sales_amount": {
+            "example": 1000,
+            "type": "number"
+          },
+          "kind": {
+            "default": "REGULAR",
+            "enum": [
+              "REGULAR",
+              "DIRECT",
+              "RETURNED"
+            ],
+            "example": "REGULAR",
+            "type": "string"
+          },
+          "metadata": {
+            "description": "Metadata represents additional data in JSON format\n\t@Example\t{\"key1\": \"value1\", \"key2\": \"123\"}",
+            "type": "object"
+          },
+          "partner_collection_id": {
+            "example": "123456789",
+            "type": "string"
+          },
+          "repayment_amount": {
+            "example": 1000,
+            "type": "number"
+          }
+        },
+        "required": [
+          "collected_at",
+          "financing_id",
+          "gross_sales_amount",
+          "kind",
+          "partner_collection_id",
+          "repayment_amount"
+        ],
+        "type": "object"
+      },
+      "domain.CollectionResponse": {
+        "properties": {
+          "collection_id": {
+            "example": "550e8400-e29b-41d4-a716-446655440000",
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/domain.Data"
+          },
+          "financing_id": {
+            "example": "550e8400-e29b-41d4-a716-446655440000",
+            "type": "string"
+          },
+          "message": {
+            "example": "Financing 550e8400-e29b-41d4-a716-446655440000 cap reached",
+            "type": "string"
+          },
+          "partner_collection_id": {
+            "example": "123456789",
+            "type": "string"
+          },
+          "success": {
+            "example": true,
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "domain.Data": {
+        "properties": {
+          "amount_to_dismiss": {
+            "example": 12.4,
+            "type": "number"
+          },
+          "charged_amount": {
+            "example": 57.7,
+            "type": "number"
+          },
+          "dismiss_reasons": {
+            "example": [
+              "[FINANCING_PAID]"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "repayment_amount": {
+            "example": 70.1,
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "RequestBody": {
+        "type": "object",
+        "required": [
+          "external_id",
+          "scenario"
+        ],
+        "properties": {
+          "external_id": {
+            "type": "string",
+            "description": "Unique identifier of the merchant to be created.",
+            "example": "1234567890"
+          },
+          "metadata": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ScenarioMetadata"
+              }
+            ],
+            "description": "Additional metadata for the scenario."
+          },
+          "scenario": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SandboxScenario"
+              }
+            ],
+            "description": "Name of the scenario to be created.",
+            "example": "financing_active"
+          }
+        }
+      },
+      "SeedOffersResponse": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "description": "List of created offers. May contain nulls if some items fail to create.",
+            "items": {
+              "type": "object",
+              "nullable": true,
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "Offer ID.",
+                  "example": "12e56130-8e25-4ac4-97a4-c981dd5f366c"
+                },
+                "disbursement_amount": {
+                  "$ref": "#/components/schemas/Money"
+                },
+                "repayment_rate": {
+                  "type": "number",
+                  "format": "float",
+                  "description": "Repayment percentage for each transaction of the user.",
+                  "example": 20.5
+                },
+                "status": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/OfferStatus"
+                    }
+                  ],
+                  "description": "Offer status (AVAILABLE by default in `seed_offers`)."
+                },
+                "expires_at": {
+                  "type": "integer",
+                  "format": "int64",
+                  "description": "Unix timestamp in milliseconds for the offer expiration."
+                }
+              }
+            }
+          },
+          "error": {
+            "type": "string",
+            "nullable": true,
+            "description": "Error message, if any."
+          }
+        }
+      },
+      "ScenarioMetadata": {
+        "type": "object",
+        "properties": {
+          "amount_range": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AmountRange"
+              }
+            ],
+            "description": "Range of amounts for the offers (used in `seed_offers`)."
+          },
+          "auto_approve": {
+            "type": "boolean",
+            "default": false,
+            "description": "Auto-approve application (used in `seed_offers`). Only if `bypass_kyc` is true.",
+            "example": true
+          },
+          "bypass_kyc": {
+            "type": "boolean",
+            "default": false,
+            "description": "Skip KYC during the application (used in `seed_offers`).",
+            "example": true
+          },
+          "default_pii": {
+            "type": "boolean",
+            "default": false,
+            "description": "Use default PII for the application (used in `seed_offers`).",
+            "example": true
+          },
+          "disbursement_amount": {
+            "type": "number",
+            "description": "Disbursement amount of the financing.",
+            "example": 1000
+          },
+          "expires_in_days": {
+            "type": "integer",
+            "description": "Number of days until offers expire (used in `seed_offers`).",
+            "example": 30
+          },
+          "number_of_offers": {
+            "type": "integer",
+            "description": "Number of offers to be created (used in `seed_offers`).",
+            "example": 5
+          },
+          "paid_percentage": {
+            "type": "number",
+            "description": "Paid percentage of the financing.",
+            "example": 30
+          },
+          "repayment_status": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RepaymentStatus"
+              }
+            ],
+            "description": "Repayment status for `loan_active` and `financing_active`. Optional.",
+            "example": "REGULAR"
+          },
+          "term_days": {
+            "type": "integer",
+            "default": 90,
+            "description": "Number of days until the financing is due (used in `seed_offers` and `financing_active`).",
+            "example": 30
+          },
+          "total_repayment_amount": {
+            "type": "number",
+            "description": "Total repayment amount of the financing.",
+            "example": 1000
+          }
+        }
+      },
+      "AmountRange": {
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": "number",
+            "description": "Minimum amount.",
+            "example": 100
+          },
+          "max": {
+            "type": "number",
+            "description": "Maximum amount.",
+            "example": 1000
+          }
+        }
+      },
+      "RepaymentStatus": {
+        "type": "string",
+        "enum": [
+          "REGULAR",
+          "SLOW_PAYMENT",
+          "BEHIND_PAYMENT",
+          "PAYMENT_RECOVERY"
+        ]
+      },
+      "SandboxScenario": {
+        "type": "string",
+        "enum": [
+          "loan_active",
+          "financing_active",
+          "seed_offers",
+          "pending_application"
+        ]
+      },
+      "Money": {
+        "type": "object",
+        "properties": {
+          "currencyCode": {
+            "type": "string",
+            "description": "ISO 4217 currency code (e.g., USD, MXN).",
+            "example": "USD"
+          },
+          "amountE5": {
+            "type": "number",
+            "description": "Amount in scale 1e5 (e.g., 100.00 \u2192 10000000).",
+            "example": 25000000
+          }
+        }
+      },
+      "OfferStatus": {
+        "type": "string",
+        "enum": [
+          "AVAILABLE"
+        ]
+      },
+      "FinancingApplicationRequestBody": {
+        "type": "object",
+        "properties": {
+          "application_id": {
+            "type": "string",
+            "description": "Unique identifier of the application created.",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "features": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Features"
+              }
+            ],
+            "description": "Features of the financing."
+          },
+          "financing_id": {
+            "type": "string",
+            "description": "Unique identifier of the financing created.",
+            "example": "223e4567-e89b-12d3-a456-426614174000"
+          }
+        }
+      },
+      "Features": {
+        "type": "object",
+        "properties": {
+          "disbursement_amount": {
+            "type": "number",
+            "description": "Amount disbursed for the financing.",
+            "example": 1000
+          },
+          "repayment_rate": {
+            "type": "number",
+            "description": "Percentage of merchant's sales deducted for repayment.",
+            "example": 10
+          },
+          "total_repayment_amount": {
+            "type": "number",
+            "description": "Total amount to be repaid.",
+            "example": 1100
+          }
+        }
+      },
+      "transactions.transactionRequest": {
+        "properties": {
+          "amount": {
+            "example": 100.5,
+            "type": "number"
+          },
+          "category": {
+            "default": "REGULAR",
+            "enum": [
+              "REGULAR",
+              "CHARGE_BACK"
+            ],
+            "example": "REGULAR",
+            "type": "string"
+          },
+          "currency": {
+            "enum": [
+              "MXN",
+              "CLP",
+              "COP"
+            ],
+            "example": "MXN",
+            "type": "string"
+          },
+          "external_id": {
+            "example": "1234567890",
+            "type": "string"
+          },
+          "metadata": {
+            "description": "Metadata represents additional data in JSON format\n\t@Example\t{\"key1\": \"value1\", \"key2\": \"123\"}",
+            "type": "object"
+          },
+          "occurred_at": {
+            "example": "2023-01-25T07:00:18.00580Z",
+            "type": "string"
+          },
+          "partner_transaction_id": {
+            "example": "1234567890",
+            "type": "string"
+          }
+        },
+        "required": [
+          "amount",
+          "category",
+          "currency",
+          "external_id",
+          "metadata",
+          "occurred_at",
+          "partner_transaction_id"
+        ],
+        "type": "object"
+      }
+    },
+    "requestBodies": {
+      "callbacks.CallbackRequestArray": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "items": {
+                "$ref": "#/components/schemas/callbacks.CallbackRequest"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "description": "callback data",
+        "required": true
+      },
+      "transactions.transactionRequestArray": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "items": {
+                "$ref": "#/components/schemas/transactions.transactionRequest"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "description": "Transaction data",
+        "required": true
+      }
+    }
+  }
+}

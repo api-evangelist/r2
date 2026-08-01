@@ -1,0 +1,28 @@
+generated: '2026-07-20'
+method: searched
+source:
+- https://r2-api-docs.readme.io/changelog
+- openapi/r2-openapi.json
+versioning:
+  scheme: uri-path
+  current: v2
+  api_docs_version: 1.2.1
+  docs: https://r2-api-docs.readme.io/
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: >-
+    R2 has removed endpoints across versions (v1.2.0 dropped the sync POST
+    transactions endpoint, the transactions/collections GET endpoints, and the
+    standalone Collections endpoint) but publishes no formal deprecation policy
+    or RFC 8594 Sunset/Deprecation header support.
+  observed_removals:
+  - POST transactions (sync) — removed in v1.2.0
+  - GET transactions — removed in v1.2.0
+  - GET collections — removed in v1.2.0
+  - Collections endpoint — removed in v1.2.0 (replaced by payments/collection-kind model)
+changelog: https://r2-api-docs.readme.io/changelog
+status_page: null
+sla:
+  url: null
+  callback_retry_window: 6 attempts over ~30h; callback delivery timeout 30s

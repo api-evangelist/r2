@@ -1,0 +1,36 @@
+# R2 API Docs Documentation
+
+> Documentation for R2 API Docs
+
+## Guides
+- [Overview](https://r2-api-docs.readme.io/docs/overview.md)
+- [JWT Token Generation](https://r2-api-docs.readme.io/docs/jwt-token-generation.md)
+- [Initialize an embeddable component](https://r2-api-docs.readme.io/docs/initialize-an-embeddable-component.md)
+- [Content Security Policy (CSP)](https://r2-api-docs.readme.io/docs/content-security-policy-csp.md): To ensure seamless integration of the Embedded Experience into your platform, it's essential to configure your Content Security Policy (CSP) correctly. This document provides step-by-step instructions on how to update your CSP to allow necessary resources from multiple domains, thereby resolving CORS (Cross-Origin Resource Sharing) issues.
+- [Mobile Integration](https://r2-api-docs.readme.io/docs/mobile-integration.md)
+- [Overview](https://r2-api-docs.readme.io/docs/events_overview.md)
+- [Walkthrough](https://r2-api-docs.readme.io/docs/walkthrough.md): This walkthrough covers how to build with R2 Events and Callbacks (aka "webhooks"), which are payloads of event metadata automatically sent to your app when something happens in R2.
+- [Callbacks](https://r2-api-docs.readme.io/docs/callbacks-1.md): In order to receive notifications from R2’s side to your platform, it’s necessary for you to configure a callback url, all the financing events associated with your account are notified to that URL.  You can set your account callback by using the [account API call](https://r2-api-docs.readme.io/reference/post_callbacks-1).
+
+## API Reference
+- [Process a merchant.](https://r2-api-docs.readme.io/reference/patch_webhooks-merchants-external-id.md): Process a merchant.
+- [Add one or more transactions.](https://r2-api-docs.readme.io/reference/post_transactions.md): Important: It only allows transactions from one unique financing each time.
+- [Show a Transaction by its id.](https://r2-api-docs.readme.io/reference/get_transactions-id.md)
+- [Create transactions asynchronously.](https://r2-api-docs.readme.io/reference/post_transactions-async.md): Create a list of transactions associated to the partner.
+- [Show all financings.](https://r2-api-docs.readme.io/reference/get_financings.md): Show a list of financings associated to the partner.
+- [Show a financing by its id.](https://r2-api-docs.readme.io/reference/get_financings-id.md)
+- [Show all collections.](https://r2-api-docs.readme.io/reference/get_collections.md): Show a list of collections associated to the partner using the given filtering params.
+- [Add one or more collections.](https://r2-api-docs.readme.io/reference/post_collections.md): Important: It only allows collections from one unique financing each time.
+- [Show a collection by its id as filtering key.](https://r2-api-docs.readme.io/reference/get_collections-id.md)
+- [Refund partially one collection.](https://r2-api-docs.readme.io/reference/post_api-payments-payin-refund-id.md): Important: We are expecting the R2 collection id.
+- [Revert one collection.](https://r2-api-docs.readme.io/reference/post_api-payments-payin-revert-id.md): Important: We are expecting the R2 collection id.
+- [Show all callbacks.](https://r2-api-docs.readme.io/reference/get_callbacks.md): Show a list of callbacks associated to the partner using the given filtering params.
+- [Add a new callback.](https://r2-api-docs.readme.io/reference/post_callbacks.md): Important: It only allows callbacks from one unique financing each time.
+- [Show a callback by its id as filtering key.](https://r2-api-docs.readme.io/reference/get_callbacks-id.md)
+- [Update a callback.](https://r2-api-docs.readme.io/reference/put_callbacks-id.md)
+- [Show a callback by its id as filtering key.](https://r2-api-docs.readme.io/reference/get_events-id.md)
+- [Create scenarios for testing purposes](https://r2-api-docs.readme.io/reference/post_sandbox-scenarios-1.md): Based on the provided scenario and metadata, this endpoint can create or restore merchants, and create offers, financings, and applications.
+
+## Changelog
+- [v1.2.0](https://r2-api-docs.readme.io/changelog/v120.md)
+- [Welcome to R2 API Docs](https://r2-api-docs.readme.io/changelog/welcome-to-r2-api-docs.md)

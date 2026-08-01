@@ -1,0 +1,45 @@
+generated: '2026-07-20'
+method: derived
+format: http-status
+source: openapi/r2-openapi.json
+envelope: >-
+  Responses return a JSON object with an `error` string field (and an `items`
+  array on list/create endpoints). R2 does not use application/problem+json;
+  the HTTP status code is the primary error signal.
+problems:
+- status: 400
+  title: Bad Request
+  meaning: The request payload or parameters are invalid (e.g. transactions/collections spanning more than one financing).
+  seen_on:
+  - POST /transactions/
+  - POST /transactions/async
+  - POST /collections/
+  - POST /callbacks/
+  - PUT /callbacks/{id}
+  - PATCH /webhooks/merchants/{external_id}
+  - POST /api/payments/payin/refund/{id}
+  - POST /api/payments/payin/revert/{id}
+- status: 401
+  title: Unauthorized
+  meaning: Missing, expired, or invalid JWT in the Authorization header.
+  seen_on:
+  - POST /sandbox/scenarios
+- status: 404
+  title: Not Found
+  meaning: The referenced resource (financing, collection, callback, transaction, merchant) does not exist.
+  seen_on:
+  - GET /financings/{id}
+  - GET /collections/{id}
+  - GET /callbacks/{id}
+  - GET /transactions/{id}
+  - GET /events/{id}
+  - POST /api/payments/payin/refund/{id}
+  - POST /api/payments/payin/revert/{id}
+- status: 500
+  title: Internal Server Error
+  meaning: An unexpected error occurred on R2's side.
+  seen_on:
+  - POST /transactions/
+  - POST /collections/
+  - GET /financings/
+  - GET /collections/

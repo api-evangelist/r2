@@ -1,0 +1,36 @@
+generated: '2026-07-20'
+method: searched
+source:
+- https://r2-api-docs.readme.io/reference/post_sandbox-scenarios-1
+- https://r2-api-docs.readme.io/docs/overview
+summary: >-
+  R2 provides a dedicated development (sandbox) environment with its own
+  credentials and a scenario-seeding endpoint for setting up test merchants,
+  offers, financings, and applications.
+environments:
+  separation: R2 issues two credential sets (keyId + JWTSecret) — one for dev, one for prod.
+  dev_host: https://gateway-dev.r2capital.co/v2/
+  access_request: Email partners@r2.co to obtain dev and prod credentials.
+scenario_endpoint:
+  method: POST
+  path: /sandbox/scenarios
+  auth: JWT token without a merchant id
+  description: >-
+    Creates or restores merchants and creates offers, financings, and
+    applications based on a supplied scenario + metadata (e.g. seed_offers).
+  example_response:
+    scenario: seed_offers
+    items:
+    - id: 12e56130-8e25-4ac4-97a4-c981dd5f366c
+      disbursement_amount:
+        currencyCode: USD
+        amountE5: 25000000
+      repayment_rate: 20.5
+      status: AVAILABLE
+      expires_at: 1730851200000
+webhook_testing:
+  note: >-
+    Callback URLs can be verified from the Partners web UI with a test button
+    that triggers a test event; the handler must return HTTP 200 with body
+    "R2 API Event Received".
+  dev_webhook_source_ip: 54.151.119.16/32

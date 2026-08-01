@@ -1,0 +1,30 @@
+generated: '2026-07-20'
+method: searched
+source: live probes of /.well-known/ on R2 hosts
+note: >-
+  No /.well-known/ discovery documents were served. The API gateway
+  (gateway-dev.r2capital.co) returns 401 for all paths (auth-gated); the
+  marketing hosts return 404. Recorded for auditability; no catalog artifact
+  was found.
+hosts:
+- host: https://gateway-dev.r2capital.co
+  documents:
+  - {path: /.well-known/security.txt, status: 401}
+  - {path: /.well-known/openid-configuration, status: 401}
+  - {path: /.well-known/oauth-authorization-server, status: 401}
+  - {path: /.well-known/api-catalog, status: 401}
+  - {path: /.well-known/ai-plugin.json, status: 401}
+- host: https://r2.co
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+- host: https://r2capital.co
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}

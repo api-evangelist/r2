@@ -1,0 +1,28 @@
+generated: '2026-07-20'
+method: searched
+probe: false
+source: https://r2.co/r2s-stance-on-security-privacy
+url: https://r2.co/r2s-stance-on-security-privacy
+certifications:
+- ISO 27001:2022
+program:
+  infrastructure: Amazon Web Services (AWS)
+  encryption_in_transit: TLS
+  encryption_at_rest: AES-256 (AWS-managed encryption keys)
+  isms: Information Security Management System (ISO 27001:2022)
+  data_classification: true
+  access_audits: Periodic access audits over PII data
+  compliance:
+  - KYC (Know Your Customer)
+  - Enhanced Due Diligence (EDD) / AML
+contacts:
+  security: security@r2.co
+  privacy: privacidad@r2.co
+evidence:
+- source: https://r2.co/r2s-stance-on-security-privacy
+  keywords:
+  - iso 27001:2022
+  - tls
+  - aes-256
+  - information security management system
+  - kyc

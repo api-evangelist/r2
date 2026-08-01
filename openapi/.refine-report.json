@@ -1,0 +1,28 @@
+{
+  "provider": "r2",
+  "sources": [
+    "r2-callbacks-api-openapi.yml",
+    "r2-collections-api-openapi.yml",
+    "r2-events-api-openapi.yml",
+    "r2-financings-api-openapi.yml",
+    "r2-merchants-api-openapi.yml",
+    "r2-payments-api-openapi.yml",
+    "r2-sandbox-api-openapi.yml",
+    "r2-transactions-api-openapi.yml"
+  ],
+  "outputs": [
+    "r2-callbacks-api-openapi.yml",
+    "r2-collections-api-openapi.yml",
+    "r2-events-api-openapi.yml",
+    "r2-financings-api-openapi.yml",
+    "r2-merchants-api-openapi.yml",
+    "r2-payments-api-openapi.yml",
+    "r2-sandbox-api-openapi.yml",
+    "r2-transactions-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

@@ -1,7 +1,26 @@
 aid: r2
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/r2.png
 name: R2
-description: R2 is a company surfaced as a portfolio company of general-catalyst and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  R2 is an embedded finance platform operating across Latin America (Mexico, Brazil,
+  Chile, Colombia and Peru) that lets digital platforms and marketplaces offer
+  revenue-based financing to their merchants. Through R2's REST APIs and embeddable
+  JavaScript components, partners share merchant and transaction data for credit
+  scoring, surface pre-approved offers, run KYC, disburse capital, and reconcile
+  sales-based repayments via collections. R2 reports having facilitated over 180,000
+  loans and is backed by General Catalyst.
 url: https://raw.githubusercontent.com/api-evangelist/r2/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,12 +30,176 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
-apis: []
+- Financial Services
+- Embedded Finance
+- Lending
+- Payments
+- Fintech
+- Latin America
+- Revenue-Based Financing
+- Webhooks
+apis:
+- aid: r2:r2-callbacks-api
+  name: R2 callbacks API
+  description: The callbacks API from R2 — 2 operation(s) for callbacks.
+  humanURL: https://r2-api-docs.readme.io/
+  baseURL: https://gateway-dev.r2capital.co/v2/
+  tags:
+  - callbacks
+  properties:
+  - type: OpenAPI
+    url: openapi/r2-callbacks-api-openapi.yml
+  - type: APIReference
+    url: https://r2-api-docs.readme.io/reference
+- aid: r2:r2-collections-api
+  name: R2 collections API
+  description: The collections API from R2 — 2 operation(s) for collections.
+  humanURL: https://r2-api-docs.readme.io/
+  baseURL: https://gateway-dev.r2capital.co/v2/
+  tags:
+  - collections
+  properties:
+  - type: OpenAPI
+    url: openapi/r2-collections-api-openapi.yml
+  - type: APIReference
+    url: https://r2-api-docs.readme.io/reference
+- aid: r2:r2-events-api
+  name: R2 events API
+  description: The events API from R2 — 1 operation(s) for events.
+  humanURL: https://r2-api-docs.readme.io/
+  baseURL: https://gateway-dev.r2capital.co/v2/
+  tags:
+  - events
+  properties:
+  - type: OpenAPI
+    url: openapi/r2-events-api-openapi.yml
+  - type: APIReference
+    url: https://r2-api-docs.readme.io/reference
+- aid: r2:r2-financings-api
+  name: R2 financings API
+  description: The financings API from R2 — 2 operation(s) for financings.
+  humanURL: https://r2-api-docs.readme.io/
+  baseURL: https://gateway-dev.r2capital.co/v2/
+  tags:
+  - financings
+  properties:
+  - type: OpenAPI
+    url: openapi/r2-financings-api-openapi.yml
+  - type: APIReference
+    url: https://r2-api-docs.readme.io/reference
+- aid: r2:r2-merchants-api
+  name: R2 merchants API
+  description: The merchants API from R2 — 1 operation(s) for merchants.
+  humanURL: https://r2-api-docs.readme.io/
+  baseURL: https://gateway-dev.r2capital.co/v2/
+  tags:
+  - merchants
+  properties:
+  - type: OpenAPI
+    url: openapi/r2-merchants-api-openapi.yml
+  - type: APIReference
+    url: https://r2-api-docs.readme.io/reference
+- aid: r2:r2-payments-api
+  name: R2 payments API
+  description: The payments API from R2 — 2 operation(s) for payments.
+  humanURL: https://r2-api-docs.readme.io/
+  baseURL: https://gateway-dev.r2capital.co/v2/
+  tags:
+  - payments
+  properties:
+  - type: OpenAPI
+    url: openapi/r2-payments-api-openapi.yml
+  - type: APIReference
+    url: https://r2-api-docs.readme.io/reference
+- aid: r2:r2-sandbox-api
+  name: R2 Sandbox API
+  description: The Sandbox API from R2 — 1 operation(s) for sandbox.
+  humanURL: https://r2-api-docs.readme.io/
+  baseURL: https://gateway-dev.r2capital.co/v2/
+  tags:
+  - Sandbox
+  properties:
+  - type: OpenAPI
+    url: openapi/r2-sandbox-api-openapi.yml
+  - type: APIReference
+    url: https://r2-api-docs.readme.io/reference
+- aid: r2:r2-transactions-api
+  name: R2 transactions API
+  description: The transactions API from R2 — 3 operation(s) for transactions.
+  humanURL: https://r2-api-docs.readme.io/
+  baseURL: https://gateway-dev.r2capital.co/v2/
+  tags:
+  - transactions
+  properties:
+  - type: OpenAPI
+    url: openapi/r2-transactions-api-openapi.yml
+  - type: APIReference
+    url: https://r2-api-docs.readme.io/reference
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 24
+  pass: local-v1
+common:
+- type: DeveloperPortal
+  url: https://r2-api-docs.readme.io/
+- type: Documentation
+  url: https://r2-api-docs.readme.io/
+- type: APIReference
+  url: https://r2-api-docs.readme.io/reference
+- type: GettingStarted
+  url: https://r2-api-docs.readme.io/docs/overview
+- type: Website
+  url: https://r2.co
+- type: Blog
+  url: https://r2.co/blog
+- type: Support
+  url: https://r2.co/contact-us
+- type: LLMsTxt
+  url: llms/r2-llms.txt
+- type: Authentication
+  url: authentication/r2-authentication.yml
+- type: Conventions
+  url: conventions/r2-conventions.yml
+- type: ErrorCatalog
+  url: errors/r2-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/r2-lifecycle.yml
+- type: ChangeLog
+  url: changelog/r2-changelog.yml
+- type: Sandbox
+  url: sandbox/r2-sandbox.yml
+- type: Components
+  url: components/r2-components.yml
+- type: DataModel
+  url: data-model/r2-data-model.yml
+- type: Conformance
+  url: conformance/r2-conformance.yml
+- type: Compliance
+  url: https://r2.co/r2s-stance-on-security-privacy
+- type: TrustCenter
+  url: security/r2-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/r2-vulnerability-disclosure.yml
+- type: Security
+  url: https://r2.co/r2s-stance-on-security-privacy
+- type: DomainSecurity
+  url: security/r2-domain-security.yml
+- type: Webhooks
+  url: asyncapi/r2-events-webhooks.yml
+- type: MCPServer
+  url: mcp/r2-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: AgenticAccess
+  url: agentic-access/r2-agentic-access.yml
+- type: Overlay
+  url: overlays/r2-openapi-overlay.yaml

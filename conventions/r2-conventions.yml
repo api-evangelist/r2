@@ -1,0 +1,51 @@
+generated: '2026-07-20'
+method: searched
+source:
+- openapi/r2-openapi.json
+- https://r2-api-docs.readme.io/docs/overview
+- https://r2-api-docs.readme.io/docs/walkthrough
+summary: >-
+  Cross-cutting request/response conventions for the R2 embedded-finance REST API
+  (gateway-dev.r2capital.co/v2), derived from the published OpenAPI and the
+  developer docs.
+authentication:
+  style: JWT bearer in Authorization header (HS256, partner-signed)
+  ref: authentication/r2-authentication.yml
+pagination:
+  style: page-number
+  params:
+  - page
+  - per_page
+  - sort
+  applies_to:
+  - GET /financings
+  - GET /collections
+  - GET /callbacks
+idempotency:
+  supported: false
+  note: >-
+    The API documents no Idempotency-Key header. For event delivery R2 pushes
+    duplicate-detection to the consumer ("you are responsible for avoiding
+    duplications"); create endpoints constrain each request to a single
+    financing rather than offering client-supplied idempotency keys.
+webhook_signing:
+  header: Content-Sha256
+  scheme: base64(HMAC-SHA256(payload, jwtSecret))
+  ref: asyncapi/r2-events-webhooks.yml
+versioning:
+  scheme: uri-path
+  current: v2
+  ref: lifecycle/r2-lifecycle.yml
+error_envelope:
+  shape: >-
+    JSON object with an `error` string field and, on list/create endpoints, an
+    `items` array. HTTP status carries the primary error signal (400/404/500).
+  ref: errors/r2-problem-types.yml
+rate_limiting:
+  documented: false
+  note: No published rate-limit headers or quotas found in the docs.
+environments:
+- name: dev
+  host: https://gateway-dev.r2capital.co/v2/
+- name: prod
+  note: Separate prod credentials issued by R2; prod host not published in docs.

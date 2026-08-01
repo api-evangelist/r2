@@ -1,0 +1,35 @@
+generated: '2026-07-20'
+method: searched
+source: openapi/r2-openapi.json
+docs: https://r2-api-docs.readme.io/docs/jwt-token-generation
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+notes: >-
+  R2 authorizes API calls with a short-lived JWT bearer token supplied in the
+  Authorization header. Partners request access by emailing partners@r2.co and
+  receive two credential sets (keyId + JWTSecret) for the dev and prod
+  environments. The partner signs its own JWTs with HS256 (HMAC-SHA256), setting
+  the keyId as the token `kid` header plus optional `mid` (merchant id) and
+  `country` (ISO-2) claims and an `exp` expiry. Merchant id is required when
+  initializing embeddable components.
+schemes:
+- name: JWT
+  type: apiKey
+  in: header
+  parameter: Authorization
+  token_format: JWT
+  signing_algorithm: HS256
+  claims:
+  - kid (header) — keyId issued by R2
+  - mid — merchant id (optional for API, required for embeddable components)
+  - country — ISO-2 country code (optional; needed for multi-country partners)
+  - exp — expiry (seconds)
+  environments:
+  - dev
+  - prod
+  sources:
+  - openapi/r2-openapi.json
+  - https://r2-api-docs.readme.io/docs/jwt-token-generation
