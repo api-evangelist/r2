@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "R2 APIs callbacks events API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Show a callback by its id as filtering key.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway-dev.r2capital.co:443/v2/events/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "uuid formatted ID."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Show a callback by its id as filtering key."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

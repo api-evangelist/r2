@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "R2 APIs callbacks Sandbox API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sandbox",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create scenarios for testing purposes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway-dev.r2capital.co:443/v2/sandbox/scenarios",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Based on the provided scenario and metadata, this endpoint can create or restore merchants,\nand create offers, financings, and applications.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

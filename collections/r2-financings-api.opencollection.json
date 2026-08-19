@@ -1,0 +1,97 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "R2 APIs callbacks financings API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "financings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Show a financing by its id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway-dev.r2capital.co:443/v2/financings/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "uuid formatted ID."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Show a financing by its id."
+        },
+        {
+          "info": {
+            "name": "Show all financings.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway-dev.r2capital.co:443/v2/financings/",
+            "params": [
+              {
+                "name": "financing_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "kind",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "partner_collection_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Show a list of financings associated to the partner."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

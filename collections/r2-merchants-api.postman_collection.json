@@ -1,0 +1,311 @@
+{
+  "item": [
+    {
+      "id": "69e9ae1a-a84f-4eda-b055-031f6692f581",
+      "name": "merchants",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5dfecc85-d276-4199-8c0b-18df8b4ae791",
+          "name": "Process a merchant.",
+          "request": {
+            "name": "Process a merchant.",
+            "description": {
+              "content": "Process a merchant.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "webhooks",
+                "merchants",
+                ":external_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_key",
+                  "value": "<string>",
+                  "description": "(Required) api_key"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "external_id",
+                  "description": "(Required) external_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"additional_information\": \"<object>\",\n  \"address\": {\n    \"city\": \"<string>\",\n    \"colony\": \"<string>\",\n    \"comune\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"municipality\": \"<string>\",\n    \"number\": \"<string>\",\n    \"number_ext\": \"<string>\",\n    \"number_int\": \"<string>\",\n    \"region\": \"<string>\",\n    \"state\": \"<string>\",\n    \"street\": \"<string>\",\n    \"zip_code\": \"<string>\"\n  },\n  \"banks\": [\n    {\n      \"account_number\": \"<string>\",\n      \"account_type\": \"<string>\",\n      \"bank_name\": \"<string>\",\n      \"code\": \"<string>\",\n      \"disbursement_info\": {\n        \"first_payout_unix_time_seconds\": \"<integer>\",\n        \"last_payout_unix_time_seconds\": \"<integer>\",\n        \"payout_count\": \"<integer>\",\n        \"payout_count_lookback_days\": \"<integer>\",\n        \"shared_at\": \"<string>\"\n      },\n      \"doc_id\": \"<string>\",\n      \"doc_type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner\": \"<string>\",\n      \"rfc\": \"<string>\",\n      \"rut\": \"<string>\"\n    },\n    {\n      \"account_number\": \"<string>\",\n      \"account_type\": \"<string>\",\n      \"bank_name\": \"<string>\",\n      \"code\": \"<string>\",\n      \"disbursement_info\": {\n        \"first_payout_unix_time_seconds\": \"<integer>\",\n        \"last_payout_unix_time_seconds\": \"<integer>\",\n        \"payout_count\": \"<integer>\",\n        \"payout_count_lookback_days\": \"<integer>\",\n        \"shared_at\": \"<string>\"\n      },\n      \"doc_id\": \"<string>\",\n      \"doc_type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner\": \"<string>\",\n      \"rfc\": \"<string>\",\n      \"rut\": \"<string>\"\n    }\n  ],\n  \"business\": {\n    \"activities\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"activity_codes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"brand_name\": \"<string>\",\n    \"business_type\": \"<string>\",\n    \"curp\": \"<string>\",\n    \"doc_id\": \"<string>\",\n    \"doc_type\": \"<string>\",\n    \"docs\": [\n      {\n        \"doc_id\": \"<string>\",\n        \"doc_type\": \"<string>\"\n      },\n      {\n        \"doc_id\": \"<string>\",\n        \"doc_type\": \"<string>\"\n      }\n    ],\n    \"id\": \"<string>\",\n    \"industry\": \"<string>\",\n    \"ine\": \"<string>\",\n    \"legal_representatives\": [\n      {\n        \"curp\": \"<string>\",\n        \"doc_id\": \"<string>\",\n        \"doc_type\": \"<string>\",\n        \"docs\": [\n          {\n            \"doc_id\": \"<string>\",\n            \"doc_type\": \"<string>\"\n          },\n          {\n            \"doc_id\": \"<string>\",\n            \"doc_type\": \"<string>\"\n          }\n        ],\n        \"first_name\": \"<string>\",\n        \"id\": \"<string>\",\n        \"ine\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"name\": \"<string>\",\n        \"rfc\": \"<string>\",\n        \"rut\": \"<string>\"\n      },\n      {\n        \"curp\": \"<string>\",\n        \"doc_id\": \"<string>\",\n        \"doc_type\": \"<string>\",\n        \"docs\": [\n          {\n            \"doc_id\": \"<string>\",\n            \"doc_type\": \"<string>\"\n          },\n          {\n            \"doc_id\": \"<string>\",\n            \"doc_type\": \"<string>\"\n          }\n        ],\n        \"first_name\": \"<string>\",\n        \"id\": \"<string>\",\n        \"ine\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"name\": \"<string>\",\n        \"rfc\": \"<string>\",\n        \"rut\": \"<string>\"\n      }\n    ],\n    \"name\": \"<string>\",\n    \"rfc\": \"<string>\",\n    \"rut\": \"<string>\"\n  },\n  \"contact\": {\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\"\n  },\n  \"status\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "88b678b2-b68b-4b24-a76c-7b8402c77e2f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks",
+                    "merchants",
+                    ":external_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "external_id",
+                      "description": "(Required) external_id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"additional_information\": \"<object>\",\n  \"address\": {\n    \"city\": \"<string>\",\n    \"colony\": \"<string>\",\n    \"comune\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"municipality\": \"<string>\",\n    \"number\": \"<string>\",\n    \"number_ext\": \"<string>\",\n    \"number_int\": \"<string>\",\n    \"region\": \"<string>\",\n    \"state\": \"<string>\",\n    \"street\": \"<string>\",\n    \"zip_code\": \"<string>\"\n  },\n  \"banks\": [\n    {\n      \"account_number\": \"<string>\",\n      \"account_type\": \"<string>\",\n      \"bank_name\": \"<string>\",\n      \"code\": \"<string>\",\n      \"disbursement_info\": {\n        \"first_payout_unix_time_seconds\": \"<integer>\",\n        \"last_payout_unix_time_seconds\": \"<integer>\",\n        \"payout_count\": \"<integer>\",\n        \"payout_count_lookback_days\": \"<integer>\",\n        \"shared_at\": \"<string>\"\n      },\n      \"doc_id\": \"<string>\",\n      \"doc_type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner\": \"<string>\",\n      \"rfc\": \"<string>\",\n      \"rut\": \"<string>\"\n    },\n    {\n      \"account_number\": \"<string>\",\n      \"account_type\": \"<string>\",\n      \"bank_name\": \"<string>\",\n      \"code\": \"<string>\",\n      \"disbursement_info\": {\n        \"first_payout_unix_time_seconds\": \"<integer>\",\n        \"last_payout_unix_time_seconds\": \"<integer>\",\n        \"payout_count\": \"<integer>\",\n        \"payout_count_lookback_days\": \"<integer>\",\n        \"shared_at\": \"<string>\"\n      },\n      \"doc_id\": \"<string>\",\n      \"doc_type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner\": \"<string>\",\n      \"rfc\": \"<string>\",\n      \"rut\": \"<string>\"\n    }\n  ],\n  \"business\": {\n    \"activities\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"activity_codes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"brand_name\": \"<string>\",\n    \"business_type\": \"<string>\",\n    \"curp\": \"<string>\",\n    \"doc_id\": \"<string>\",\n    \"doc_type\": \"<string>\",\n    \"docs\": [\n      {\n        \"doc_id\": \"<string>\",\n        \"doc_type\": \"<string>\"\n      },\n      {\n        \"doc_id\": \"<string>\",\n        \"doc_type\": \"<string>\"\n      }\n    ],\n    \"id\": \"<string>\",\n    \"industry\": \"<string>\",\n    \"ine\": \"<string>\",\n    \"legal_representatives\": [\n      {\n        \"curp\": \"<string>\",\n        \"doc_id\": \"<string>\",\n        \"doc_type\": \"<string>\",\n        \"docs\": [\n          {\n            \"doc_id\": \"<string>\",\n            \"doc_type\": \"<string>\"\n          },\n          {\n            \"doc_id\": \"<string>\",\n            \"doc_type\": \"<string>\"\n          }\n        ],\n        \"first_name\": \"<string>\",\n        \"id\": \"<string>\",\n        \"ine\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"name\": \"<string>\",\n        \"rfc\": \"<string>\",\n        \"rut\": \"<string>\"\n      },\n      {\n        \"curp\": \"<string>\",\n        \"doc_id\": \"<string>\",\n        \"doc_type\": \"<string>\",\n        \"docs\": [\n          {\n            \"doc_id\": \"<string>\",\n            \"doc_type\": \"<string>\"\n          },\n          {\n            \"doc_id\": \"<string>\",\n            \"doc_type\": \"<string>\"\n          }\n        ],\n        \"first_name\": \"<string>\",\n        \"id\": \"<string>\",\n        \"ine\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"name\": \"<string>\",\n        \"rfc\": \"<string>\",\n        \"rut\": \"<string>\"\n      }\n    ],\n    \"name\": \"<string>\",\n    \"rfc\": \"<string>\",\n    \"rut\": \"<string>\"\n  },\n  \"contact\": {\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\"\n  },\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"items\": [\n    {\n      \"country_code\": \"string\",\n      \"created_at\": \"string\",\n      \"email\": \"string\",\n      \"environment\": \"string\",\n      \"external_id\": \"string\",\n      \"id\": \"string\",\n      \"metadata\": {},\n      \"status\": \"string\",\n      \"updated_at\": \"string\"\n    },\n    {\n      \"country_code\": \"string\",\n      \"created_at\": \"string\",\n      \"email\": \"string\",\n      \"environment\": \"string\",\n      \"external_id\": \"string\",\n      \"id\": \"string\",\n      \"metadata\": {},\n      \"status\": \"string\",\n      \"updated_at\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "16895321-a7d3-463b-a147-04f5967bfff7",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks",
+                    "merchants",
+                    ":external_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "external_id",
+                      "description": "(Required) external_id"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"additional_information\": \"<object>\",\n  \"address\": {\n    \"city\": \"<string>\",\n    \"colony\": \"<string>\",\n    \"comune\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"municipality\": \"<string>\",\n    \"number\": \"<string>\",\n    \"number_ext\": \"<string>\",\n    \"number_int\": \"<string>\",\n    \"region\": \"<string>\",\n    \"state\": \"<string>\",\n    \"street\": \"<string>\",\n    \"zip_code\": \"<string>\"\n  },\n  \"banks\": [\n    {\n      \"account_number\": \"<string>\",\n      \"account_type\": \"<string>\",\n      \"bank_name\": \"<string>\",\n      \"code\": \"<string>\",\n      \"disbursement_info\": {\n        \"first_payout_unix_time_seconds\": \"<integer>\",\n        \"last_payout_unix_time_seconds\": \"<integer>\",\n        \"payout_count\": \"<integer>\",\n        \"payout_count_lookback_days\": \"<integer>\",\n        \"shared_at\": \"<string>\"\n      },\n      \"doc_id\": \"<string>\",\n      \"doc_type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner\": \"<string>\",\n      \"rfc\": \"<string>\",\n      \"rut\": \"<string>\"\n    },\n    {\n      \"account_number\": \"<string>\",\n      \"account_type\": \"<string>\",\n      \"bank_name\": \"<string>\",\n      \"code\": \"<string>\",\n      \"disbursement_info\": {\n        \"first_payout_unix_time_seconds\": \"<integer>\",\n        \"last_payout_unix_time_seconds\": \"<integer>\",\n        \"payout_count\": \"<integer>\",\n        \"payout_count_lookback_days\": \"<integer>\",\n        \"shared_at\": \"<string>\"\n      },\n      \"doc_id\": \"<string>\",\n      \"doc_type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner\": \"<string>\",\n      \"rfc\": \"<string>\",\n      \"rut\": \"<string>\"\n    }\n  ],\n  \"business\": {\n    \"activities\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"activity_codes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"brand_name\": \"<string>\",\n    \"business_type\": \"<string>\",\n    \"curp\": \"<string>\",\n    \"doc_id\": \"<string>\",\n    \"doc_type\": \"<string>\",\n    \"docs\": [\n      {\n        \"doc_id\": \"<string>\",\n        \"doc_type\": \"<string>\"\n      },\n      {\n        \"doc_id\": \"<string>\",\n        \"doc_type\": \"<string>\"\n      }\n    ],\n    \"id\": \"<string>\",\n    \"industry\": \"<string>\",\n    \"ine\": \"<string>\",\n    \"legal_representatives\": [\n      {\n        \"curp\": \"<string>\",\n        \"doc_id\": \"<string>\",\n        \"doc_type\": \"<string>\",\n        \"docs\": [\n          {\n            \"doc_id\": \"<string>\",\n            \"doc_type\": \"<string>\"\n          },\n          {\n            \"doc_id\": \"<string>\",\n            \"doc_type\": \"<string>\"\n          }\n        ],\n        \"first_name\": \"<string>\",\n        \"id\": \"<string>\",\n        \"ine\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"name\": \"<string>\",\n        \"rfc\": \"<string>\",\n        \"rut\": \"<string>\"\n      },\n      {\n        \"curp\": \"<string>\",\n        \"doc_id\": \"<string>\",\n        \"doc_type\": \"<string>\",\n        \"docs\": [\n          {\n            \"doc_id\": \"<string>\",\n            \"doc_type\": \"<string>\"\n          },\n          {\n            \"doc_id\": \"<string>\",\n            \"doc_type\": \"<string>\"\n          }\n        ],\n        \"first_name\": \"<string>\",\n        \"id\": \"<string>\",\n        \"ine\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"name\": \"<string>\",\n        \"rfc\": \"<string>\",\n        \"rut\": \"<string>\"\n      }\n    ],\n    \"name\": \"<string>\",\n    \"rfc\": \"<string>\",\n    \"rut\": \"<string>\"\n  },\n  \"contact\": {\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\"\n  },\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b5203dbb-5930-4da0-b143-8ce0542e2a03",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks",
+                    "merchants",
+                    ":external_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "external_id",
+                      "description": "(Required) external_id"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"additional_information\": \"<object>\",\n  \"address\": {\n    \"city\": \"<string>\",\n    \"colony\": \"<string>\",\n    \"comune\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"municipality\": \"<string>\",\n    \"number\": \"<string>\",\n    \"number_ext\": \"<string>\",\n    \"number_int\": \"<string>\",\n    \"region\": \"<string>\",\n    \"state\": \"<string>\",\n    \"street\": \"<string>\",\n    \"zip_code\": \"<string>\"\n  },\n  \"banks\": [\n    {\n      \"account_number\": \"<string>\",\n      \"account_type\": \"<string>\",\n      \"bank_name\": \"<string>\",\n      \"code\": \"<string>\",\n      \"disbursement_info\": {\n        \"first_payout_unix_time_seconds\": \"<integer>\",\n        \"last_payout_unix_time_seconds\": \"<integer>\",\n        \"payout_count\": \"<integer>\",\n        \"payout_count_lookback_days\": \"<integer>\",\n        \"shared_at\": \"<string>\"\n      },\n      \"doc_id\": \"<string>\",\n      \"doc_type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner\": \"<string>\",\n      \"rfc\": \"<string>\",\n      \"rut\": \"<string>\"\n    },\n    {\n      \"account_number\": \"<string>\",\n      \"account_type\": \"<string>\",\n      \"bank_name\": \"<string>\",\n      \"code\": \"<string>\",\n      \"disbursement_info\": {\n        \"first_payout_unix_time_seconds\": \"<integer>\",\n        \"last_payout_unix_time_seconds\": \"<integer>\",\n        \"payout_count\": \"<integer>\",\n        \"payout_count_lookback_days\": \"<integer>\",\n        \"shared_at\": \"<string>\"\n      },\n      \"doc_id\": \"<string>\",\n      \"doc_type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner\": \"<string>\",\n      \"rfc\": \"<string>\",\n      \"rut\": \"<string>\"\n    }\n  ],\n  \"business\": {\n    \"activities\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"activity_codes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"brand_name\": \"<string>\",\n    \"business_type\": \"<string>\",\n    \"curp\": \"<string>\",\n    \"doc_id\": \"<string>\",\n    \"doc_type\": \"<string>\",\n    \"docs\": [\n      {\n        \"doc_id\": \"<string>\",\n        \"doc_type\": \"<string>\"\n      },\n      {\n        \"doc_id\": \"<string>\",\n        \"doc_type\": \"<string>\"\n      }\n    ],\n    \"id\": \"<string>\",\n    \"industry\": \"<string>\",\n    \"ine\": \"<string>\",\n    \"legal_representatives\": [\n      {\n        \"curp\": \"<string>\",\n        \"doc_id\": \"<string>\",\n        \"doc_type\": \"<string>\",\n        \"docs\": [\n          {\n            \"doc_id\": \"<string>\",\n            \"doc_type\": \"<string>\"\n          },\n          {\n            \"doc_id\": \"<string>\",\n            \"doc_type\": \"<string>\"\n          }\n        ],\n        \"first_name\": \"<string>\",\n        \"id\": \"<string>\",\n        \"ine\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"name\": \"<string>\",\n        \"rfc\": \"<string>\",\n        \"rut\": \"<string>\"\n      },\n      {\n        \"curp\": \"<string>\",\n        \"doc_id\": \"<string>\",\n        \"doc_type\": \"<string>\",\n        \"docs\": [\n          {\n            \"doc_id\": \"<string>\",\n            \"doc_type\": \"<string>\"\n          },\n          {\n            \"doc_id\": \"<string>\",\n            \"doc_type\": \"<string>\"\n          }\n        ],\n        \"first_name\": \"<string>\",\n        \"id\": \"<string>\",\n        \"ine\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"name\": \"<string>\",\n        \"rfc\": \"<string>\",\n        \"rut\": \"<string>\"\n      }\n    ],\n    \"name\": \"<string>\",\n    \"rfc\": \"<string>\",\n    \"rut\": \"<string>\"\n  },\n  \"contact\": {\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\"\n  },\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a7bf6cfa-9346-4c35-9988-3b10151f2927",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks",
+                    "merchants",
+                    ":external_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "external_id",
+                      "description": "(Required) external_id"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"additional_information\": \"<object>\",\n  \"address\": {\n    \"city\": \"<string>\",\n    \"colony\": \"<string>\",\n    \"comune\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"municipality\": \"<string>\",\n    \"number\": \"<string>\",\n    \"number_ext\": \"<string>\",\n    \"number_int\": \"<string>\",\n    \"region\": \"<string>\",\n    \"state\": \"<string>\",\n    \"street\": \"<string>\",\n    \"zip_code\": \"<string>\"\n  },\n  \"banks\": [\n    {\n      \"account_number\": \"<string>\",\n      \"account_type\": \"<string>\",\n      \"bank_name\": \"<string>\",\n      \"code\": \"<string>\",\n      \"disbursement_info\": {\n        \"first_payout_unix_time_seconds\": \"<integer>\",\n        \"last_payout_unix_time_seconds\": \"<integer>\",\n        \"payout_count\": \"<integer>\",\n        \"payout_count_lookback_days\": \"<integer>\",\n        \"shared_at\": \"<string>\"\n      },\n      \"doc_id\": \"<string>\",\n      \"doc_type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner\": \"<string>\",\n      \"rfc\": \"<string>\",\n      \"rut\": \"<string>\"\n    },\n    {\n      \"account_number\": \"<string>\",\n      \"account_type\": \"<string>\",\n      \"bank_name\": \"<string>\",\n      \"code\": \"<string>\",\n      \"disbursement_info\": {\n        \"first_payout_unix_time_seconds\": \"<integer>\",\n        \"last_payout_unix_time_seconds\": \"<integer>\",\n        \"payout_count\": \"<integer>\",\n        \"payout_count_lookback_days\": \"<integer>\",\n        \"shared_at\": \"<string>\"\n      },\n      \"doc_id\": \"<string>\",\n      \"doc_type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner\": \"<string>\",\n      \"rfc\": \"<string>\",\n      \"rut\": \"<string>\"\n    }\n  ],\n  \"business\": {\n    \"activities\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"activity_codes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"brand_name\": \"<string>\",\n    \"business_type\": \"<string>\",\n    \"curp\": \"<string>\",\n    \"doc_id\": \"<string>\",\n    \"doc_type\": \"<string>\",\n    \"docs\": [\n      {\n        \"doc_id\": \"<string>\",\n        \"doc_type\": \"<string>\"\n      },\n      {\n        \"doc_id\": \"<string>\",\n        \"doc_type\": \"<string>\"\n      }\n    ],\n    \"id\": \"<string>\",\n    \"industry\": \"<string>\",\n    \"ine\": \"<string>\",\n    \"legal_representatives\": [\n      {\n        \"curp\": \"<string>\",\n        \"doc_id\": \"<string>\",\n        \"doc_type\": \"<string>\",\n        \"docs\": [\n          {\n            \"doc_id\": \"<string>\",\n            \"doc_type\": \"<string>\"\n          },\n          {\n            \"doc_id\": \"<string>\",\n            \"doc_type\": \"<string>\"\n          }\n        ],\n        \"first_name\": \"<string>\",\n        \"id\": \"<string>\",\n        \"ine\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"name\": \"<string>\",\n        \"rfc\": \"<string>\",\n        \"rut\": \"<string>\"\n      },\n      {\n        \"curp\": \"<string>\",\n        \"doc_id\": \"<string>\",\n        \"doc_type\": \"<string>\",\n        \"docs\": [\n          {\n            \"doc_id\": \"<string>\",\n            \"doc_type\": \"<string>\"\n          },\n          {\n            \"doc_id\": \"<string>\",\n            \"doc_type\": \"<string>\"\n          }\n        ],\n        \"first_name\": \"<string>\",\n        \"id\": \"<string>\",\n        \"ine\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"name\": \"<string>\",\n        \"rfc\": \"<string>\",\n        \"rut\": \"<string>\"\n      }\n    ],\n    \"name\": \"<string>\",\n    \"rfc\": \"<string>\",\n    \"rut\": \"<string>\"\n  },\n  \"contact\": {\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\"\n  },\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gateway-dev.r2capital.co:443/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7c5b6140-5e43-4ca1-92f2-a7d9079261f7",
+    "name": "R2 APIs callbacks merchants API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "## Introduction\n<p>Through our REST APIs, you'll be able to run an end-to-end capital program for your merchants. Specifically, you will: </br></p>\n<ul>\n<li>Securely share data about your merchants and their transactions so that R2 can score them</li>\n<li>Issue optimal financing offers for your preapproved merchants</li>\n<li>Launch marketing touchpoints so that preapproved merchants learn about their financing offers</li>\n<li>Send or capture specific data about a merchant to run R2's KYC process</li>\n<li>Learn when a financing has been made along with its specific terms</li>\n<li>Provide sales and/or repayment data on financed merchants</li>\n<li>Retrieve updated balances</li>\n<li>Renew financings</li>\n</ul>\n<p>We have language bindings in Shell. You can view code snippets on the right-hand panel, and you can switch the snippets' programming language using the tabs above the code view.</br>\nTo access our APIs, you need an access token. Please sign-up and get a new access token by registering at our developer portal.</p>\n\nContact Support:\n Name: R2 Support\n Email: support@r2capital.co",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,703 @@
+{
+  "item": [
+    {
+      "id": "e53f0df9-ee01-488a-a24e-99104c034c3f",
+      "name": "transactions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "798d65ed-d61c-43f7-b5d4-467a06f1eb6c",
+          "name": "Show a Transaction by its id.",
+          "request": {
+            "name": "Show a Transaction by its id.",
+            "description": {},
+            "url": {
+              "path": [
+                "transactions",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) uuid formatted ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "848d5cae-62b4-4a46-8ab9-9c8c2e1a193f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) uuid formatted ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"items\": [\n    {\n      \"amount\": 100.5,\n      \"category\": \"REGULAR\",\n      \"created_at\": \"2023-11-01T00:00:00Z\",\n      \"currency\": \"MXN\",\n      \"external_id\": \"1234567890\",\n      \"id\": \"123e4567-e89b-12d3-a456-426614174000\",\n      \"metadata\": {},\n      \"occurred_at\": \"1949-12-07\",\n      \"partner_transaction_id\": \"1234567890\",\n      \"updated_at\": \"2023-11-01T00:00:00Z\"\n    },\n    {\n      \"amount\": 100.5,\n      \"category\": \"REGULAR\",\n      \"created_at\": \"2023-11-01T00:00:00Z\",\n      \"currency\": \"MXN\",\n      \"external_id\": \"1234567890\",\n      \"id\": \"123e4567-e89b-12d3-a456-426614174000\",\n      \"metadata\": {},\n      \"occurred_at\": \"1997-08-13\",\n      \"partner_transaction_id\": \"1234567890\",\n      \"updated_at\": \"2023-11-01T00:00:00Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7af15ff0-663b-4233-a640-0073b5defb1e",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) uuid formatted ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0405e25b-a4cc-4fd5-b3d9-e2645dac64e3",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) uuid formatted ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "876fe2db-c962-42b4-8984-9e0e62bfcf2e",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) uuid formatted ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "78bd90c8-1959-4c7a-88f5-54bb30efbb4d",
+          "name": "Create transactions asynchronously.",
+          "request": {
+            "name": "Create transactions asynchronously.",
+            "description": {
+              "content": "Create a list of transactions associated to the partner.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transactions",
+                "async"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"amount\": \"<number>\",\n    \"category\": \"REGULAR\",\n    \"currency\": \"<string>\",\n    \"external_id\": \"<string>\",\n    \"metadata\": \"<object>\",\n    \"occurred_at\": \"<string>\",\n    \"partner_transaction_id\": \"<string>\"\n  },\n  {\n    \"amount\": \"<number>\",\n    \"category\": \"REGULAR\",\n    \"currency\": \"<string>\",\n    \"external_id\": \"<string>\",\n    \"metadata\": \"<object>\",\n    \"occurred_at\": \"<string>\",\n    \"partner_transaction_id\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0df15f95-7b91-45d9-a4d2-43ff53f6f679",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "async"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"items\": [\n    {\n      \"amount\": 100.5,\n      \"category\": \"REGULAR\",\n      \"created_at\": \"2023-11-01T00:00:00Z\",\n      \"currency\": \"MXN\",\n      \"external_id\": \"1234567890\",\n      \"id\": \"123e4567-e89b-12d3-a456-426614174000\",\n      \"metadata\": {},\n      \"occurred_at\": \"1949-12-07\",\n      \"partner_transaction_id\": \"1234567890\",\n      \"updated_at\": \"2023-11-01T00:00:00Z\"\n    },\n    {\n      \"amount\": 100.5,\n      \"category\": \"REGULAR\",\n      \"created_at\": \"2023-11-01T00:00:00Z\",\n      \"currency\": \"MXN\",\n      \"external_id\": \"1234567890\",\n      \"id\": \"123e4567-e89b-12d3-a456-426614174000\",\n      \"metadata\": {},\n      \"occurred_at\": \"1997-08-13\",\n      \"partner_transaction_id\": \"1234567890\",\n      \"updated_at\": \"2023-11-01T00:00:00Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5756813b-7d68-4b24-be94-3a587f47f314",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "async"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "66f1e589-0c37-47be-a316-a64c5e17aaee",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "async"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "09653352-dff1-42eb-8b82-8b7d7fe8adb0",
+          "name": "Add one or more transactions.",
+          "request": {
+            "name": "Add one or more transactions.",
+            "description": {
+              "content": "Important: It only allows transactions from one unique financing each time.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transactions",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"amount\": \"<number>\",\n    \"category\": \"REGULAR\",\n    \"currency\": \"<string>\",\n    \"external_id\": \"<string>\",\n    \"metadata\": \"<object>\",\n    \"occurred_at\": \"<string>\",\n    \"partner_transaction_id\": \"<string>\"\n  },\n  {\n    \"amount\": \"<number>\",\n    \"category\": \"REGULAR\",\n    \"currency\": \"<string>\",\n    \"external_id\": \"<string>\",\n    \"metadata\": \"<object>\",\n    \"occurred_at\": \"<string>\",\n    \"partner_transaction_id\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b9fc1615-d31f-488f-88a8-17ec32342ef5",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"items\": [\n    {\n      \"amount\": 100.5,\n      \"category\": \"REGULAR\",\n      \"created_at\": \"2023-11-01T00:00:00Z\",\n      \"currency\": \"MXN\",\n      \"external_id\": \"1234567890\",\n      \"id\": \"123e4567-e89b-12d3-a456-426614174000\",\n      \"metadata\": {},\n      \"occurred_at\": \"1949-12-07\",\n      \"partner_transaction_id\": \"1234567890\",\n      \"updated_at\": \"2023-11-01T00:00:00Z\"\n    },\n    {\n      \"amount\": 100.5,\n      \"category\": \"REGULAR\",\n      \"created_at\": \"2023-11-01T00:00:00Z\",\n      \"currency\": \"MXN\",\n      \"external_id\": \"1234567890\",\n      \"id\": \"123e4567-e89b-12d3-a456-426614174000\",\n      \"metadata\": {},\n      \"occurred_at\": \"1997-08-13\",\n      \"partner_transaction_id\": \"1234567890\",\n      \"updated_at\": \"2023-11-01T00:00:00Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a767a51d-599b-4454-9e2e-12463d0f6d91",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6e7ee3c8-474f-4216-a4bc-2e3c2c0fd4a1",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "40aceb20-c98c-4dc8-bda7-b5b72a31163f",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gateway-dev.r2capital.co:443/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3c4d24e3-e947-4a5c-9eec-691426ef3069",
+    "name": "R2 APIs callbacks transactions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "## Introduction\n<p>Through our REST APIs, you'll be able to run an end-to-end capital program for your merchants. Specifically, you will: </br></p>\n<ul>\n<li>Securely share data about your merchants and their transactions so that R2 can score them</li>\n<li>Issue optimal financing offers for your preapproved merchants</li>\n<li>Launch marketing touchpoints so that preapproved merchants learn about their financing offers</li>\n<li>Send or capture specific data about a merchant to run R2's KYC process</li>\n<li>Learn when a financing has been made along with its specific terms</li>\n<li>Provide sales and/or repayment data on financed merchants</li>\n<li>Retrieve updated balances</li>\n<li>Renew financings</li>\n</ul>\n<p>We have language bindings in Shell. You can view code snippets on the right-hand panel, and you can switch the snippets' programming language using the tabs above the code view.</br>\nTo access our APIs, you need an access token. Please sign-up and get a new access token by registering at our developer portal.</p>\n\nContact Support:\n Name: R2 Support\n Email: support@r2capital.co",
+      "type": "text/plain"
+    }
+  }
+}

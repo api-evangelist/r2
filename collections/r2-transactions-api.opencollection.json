@@ -1,0 +1,85 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "R2 APIs callbacks transactions API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "transactions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Show a Transaction by its id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway-dev.r2capital.co:443/v2/transactions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "uuid formatted ID."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Show a Transaction by its id."
+        },
+        {
+          "info": {
+            "name": "Create transactions asynchronously.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway-dev.r2capital.co:443/v2/transactions/async",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Create a list of transactions associated to the partner."
+        },
+        {
+          "info": {
+            "name": "Add one or more transactions.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway-dev.r2capital.co:443/v2/transactions/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Important: It only allows transactions from one unique financing each time."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

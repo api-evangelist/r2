@@ -1,0 +1,635 @@
+{
+  "item": [
+    {
+      "id": "4c864c47-c33b-4acc-957b-2b20ba6c7443",
+      "name": "payments",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "263cc57d-b297-41f7-9f77-434e9a5565b4",
+          "name": "Refund partially one collection.",
+          "request": {
+            "name": "Refund partially one collection.",
+            "description": {
+              "content": "Important: We are expecting the R2 collection id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "payments",
+                "payin",
+                "refund",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) uuid formatted R2 collection ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": \"<number>\",\n  \"gross_sales_amount\": \"<number>\",\n  \"id\": \"<string>\",\n  \"metadata\": \"<object>\",\n  \"partner_collection_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "20875c26-00e4-4e03-a4e1-a5ae7772a159",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "payments",
+                    "payin",
+                    "refund",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) uuid formatted R2 collection ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": -70.1,\n  \"gross_sales_amount\": 70.1,\n  \"id\": \"<string>\",\n  \"metadata\": \"<object>\",\n  \"partner_collection_id\": \"550e8400-e29b-41d4-a716-446655440000\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"items\": [\n    {\n      \"error\": \"In case of error here is a message\",\n      \"items\": [\n        {\n          \"collection_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n          \"data\": {\n            \"amount_to_dismiss\": 0,\n            \"charged_amount\": -70.1,\n            \"repayment_amount\": -70.1\n          },\n          \"financing_id\": \"550e8400-e29b-41d4-a716-446655440001\",\n          \"message\": \"A revert or refund collection related to parent id was added\",\n          \"parent_id\": \"550e8400-e29b-41d4-a716-446655440002\",\n          \"partner_collection_id\": \"string\",\n          \"success\": true\n        },\n        {\n          \"collection_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n          \"data\": {\n            \"amount_to_dismiss\": 0,\n            \"charged_amount\": -70.1,\n            \"repayment_amount\": -70.1\n          },\n          \"financing_id\": \"550e8400-e29b-41d4-a716-446655440001\",\n          \"message\": \"A revert or refund collection related to parent id was added\",\n          \"parent_id\": \"550e8400-e29b-41d4-a716-446655440002\",\n          \"partner_collection_id\": \"string\",\n          \"success\": true\n        }\n      ]\n    },\n    {\n      \"error\": \"In case of error here is a message\",\n      \"items\": [\n        {\n          \"collection_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n          \"data\": {\n            \"amount_to_dismiss\": 0,\n            \"charged_amount\": -70.1,\n            \"repayment_amount\": -70.1\n          },\n          \"financing_id\": \"550e8400-e29b-41d4-a716-446655440001\",\n          \"message\": \"A revert or refund collection related to parent id was added\",\n          \"parent_id\": \"550e8400-e29b-41d4-a716-446655440002\",\n          \"partner_collection_id\": \"string\",\n          \"success\": true\n        },\n        {\n          \"collection_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n          \"data\": {\n            \"amount_to_dismiss\": 0,\n            \"charged_amount\": -70.1,\n            \"repayment_amount\": -70.1\n          },\n          \"financing_id\": \"550e8400-e29b-41d4-a716-446655440001\",\n          \"message\": \"A revert or refund collection related to parent id was added\",\n          \"parent_id\": \"550e8400-e29b-41d4-a716-446655440002\",\n          \"partner_collection_id\": \"string\",\n          \"success\": true\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "df244ce9-7c5c-4ba6-9851-98340aaec0c4",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "payments",
+                    "payin",
+                    "refund",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) uuid formatted R2 collection ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": -70.1,\n  \"gross_sales_amount\": 70.1,\n  \"id\": \"<string>\",\n  \"metadata\": \"<object>\",\n  \"partner_collection_id\": \"550e8400-e29b-41d4-a716-446655440000\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ff8dff22-98d2-4d91-8db3-44306c1b8e65",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "payments",
+                    "payin",
+                    "refund",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) uuid formatted R2 collection ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": -70.1,\n  \"gross_sales_amount\": 70.1,\n  \"id\": \"<string>\",\n  \"metadata\": \"<object>\",\n  \"partner_collection_id\": \"550e8400-e29b-41d4-a716-446655440000\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "46f9ad3f-24b0-4b37-8995-6b1396f81348",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "payments",
+                    "payin",
+                    "refund",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) uuid formatted R2 collection ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": -70.1,\n  \"gross_sales_amount\": 70.1,\n  \"id\": \"<string>\",\n  \"metadata\": \"<object>\",\n  \"partner_collection_id\": \"550e8400-e29b-41d4-a716-446655440000\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0cc5d637-b1ac-4e5a-9681-8ee4ca084fab",
+          "name": "Revert one collection.",
+          "request": {
+            "name": "Revert one collection.",
+            "description": {
+              "content": "Important: We are expecting the R2 collection id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "payments",
+                "payin",
+                "revert",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) uuid formatted R2 collection ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b9ff55ae-9a80-46c4-a35c-1810f0c3d13c",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "payments",
+                    "payin",
+                    "revert",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) uuid formatted R2 collection ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"items\": [\n    {\n      \"collection_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n      \"data\": {\n        \"amount_to_dismiss\": 0,\n        \"charged_amount\": -70.1,\n        \"repayment_amount\": -70.1\n      },\n      \"financing_id\": \"550e8400-e29b-41d4-a716-446655440001\",\n      \"message\": \"A revert or refund collection related to parent id was added\",\n      \"parent_id\": \"550e8400-e29b-41d4-a716-446655440002\",\n      \"partner_collection_id\": \"string\",\n      \"success\": true\n    },\n    {\n      \"collection_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n      \"data\": {\n        \"amount_to_dismiss\": 0,\n        \"charged_amount\": -70.1,\n        \"repayment_amount\": -70.1\n      },\n      \"financing_id\": \"550e8400-e29b-41d4-a716-446655440001\",\n      \"message\": \"A revert or refund collection related to parent id was added\",\n      \"parent_id\": \"550e8400-e29b-41d4-a716-446655440002\",\n      \"partner_collection_id\": \"string\",\n      \"success\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "95aa1b90-31f8-43af-81d0-165b54eb96db",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "payments",
+                    "payin",
+                    "revert",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) uuid formatted R2 collection ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ee0b1a31-a8d6-4c31-b1ea-0cabebc78176",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "payments",
+                    "payin",
+                    "revert",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) uuid formatted R2 collection ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5da0dad0-d297-46aa-9cb1-0b4a57233d9e",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "payments",
+                    "payin",
+                    "revert",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) uuid formatted R2 collection ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gateway-dev.r2capital.co:443/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "39c19627-8ea3-431f-a065-000cbd755973",
+    "name": "R2 APIs callbacks payments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "## Introduction\n<p>Through our REST APIs, you'll be able to run an end-to-end capital program for your merchants. Specifically, you will: </br></p>\n<ul>\n<li>Securely share data about your merchants and their transactions so that R2 can score them</li>\n<li>Issue optimal financing offers for your preapproved merchants</li>\n<li>Launch marketing touchpoints so that preapproved merchants learn about their financing offers</li>\n<li>Send or capture specific data about a merchant to run R2's KYC process</li>\n<li>Learn when a financing has been made along with its specific terms</li>\n<li>Provide sales and/or repayment data on financed merchants</li>\n<li>Retrieve updated balances</li>\n<li>Renew financings</li>\n</ul>\n<p>We have language bindings in Shell. You can view code snippets on the right-hand panel, and you can switch the snippets' programming language using the tabs above the code view.</br>\nTo access our APIs, you need an access token. Please sign-up and get a new access token by registering at our developer portal.</p>\n\nContact Support:\n Name: R2 Support\n Email: support@r2capital.co",
+      "type": "text/plain"
+    }
+  }
+}

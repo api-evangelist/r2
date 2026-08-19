@@ -1,0 +1,914 @@
+{
+  "item": [
+    {
+      "id": "3b5867d1-8286-43fd-9e84-6cf534693ec9",
+      "name": "collections",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dbc6f55d-49fe-4e73-b247-31b79c678c01",
+          "name": "Show a collection by its id as filtering key.",
+          "request": {
+            "name": "Show a collection by its id as filtering key.",
+            "description": {},
+            "url": {
+              "path": [
+                "collections",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) uuid formatted ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c6bcdbf3-7bdd-408f-8180-faa8b9d5933c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) uuid formatted ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"items\": [\n    {\n      \"amount_to_dismiss\": 12.4,\n      \"collected_at\": \"2025-06-03T15:30:00Z\",\n      \"created_at\": \"2023-11-06T18:07:50.093514-03:00\",\n      \"deposited_amount\": 57.7,\n      \"dismiss_reasons\": [\n        \"[FINANCING_PAID]\"\n      ],\n      \"financing_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n      \"gross_sales_amount\": 500,\n      \"id\": \"550e8400-e29b-41d4-a716-446655440000\",\n      \"kind\": \"REGULAR\",\n      \"metadata\": {},\n      \"original_repayment_amount\": 70.1,\n      \"parent_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n      \"partner_collection_id\": \"123456789\",\n      \"partner_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n      \"processed_at\": \"2023-11-06T18:07:59.533338-03:00\",\n      \"reason\": [\n        \"REFILL_INTEREST_RETURNED\"\n      ],\n      \"remaining_balance\": 1000,\n      \"repayment_amount\": 70.1,\n      \"status\": \"PROCESSED\",\n      \"total_paid\": 1000,\n      \"updated_at\": \"2023-11-06T18:07:58.590313-03:00\"\n    },\n    {\n      \"amount_to_dismiss\": 12.4,\n      \"collected_at\": \"2025-06-03T15:30:00Z\",\n      \"created_at\": \"2023-11-06T18:07:50.093514-03:00\",\n      \"deposited_amount\": 57.7,\n      \"dismiss_reasons\": [\n        \"[FINANCING_PAID]\"\n      ],\n      \"financing_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n      \"gross_sales_amount\": 500,\n      \"id\": \"550e8400-e29b-41d4-a716-446655440000\",\n      \"kind\": \"REGULAR\",\n      \"metadata\": {},\n      \"original_repayment_amount\": 70.1,\n      \"parent_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n      \"partner_collection_id\": \"123456789\",\n      \"partner_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n      \"processed_at\": \"2023-11-06T18:07:59.533338-03:00\",\n      \"reason\": [\n        \"REFILL_INTEREST_RETURNED\"\n      ],\n      \"remaining_balance\": 1000,\n      \"repayment_amount\": 70.1,\n      \"status\": \"PROCESSED\",\n      \"total_paid\": 1000,\n      \"updated_at\": \"2023-11-06T18:07:58.590313-03:00\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "82b9ed2e-78a5-4d40-9e70-4939f7d9637b",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) uuid formatted ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8ed07dc7-17f2-4e71-8aa4-58e7c4485602",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) uuid formatted ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bbf17134-2295-49c9-b39e-03ed1cfa34b2",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) uuid formatted ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "519a1c2d-1b11-4e00-9528-49cfc68cefc5",
+          "name": "Show all collections.",
+          "request": {
+            "name": "Show all collections.",
+            "description": {
+              "content": "Show a list of collections associated to the partner using the given filtering params.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collections",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "financing_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "kind",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "partner_collection_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "34704176-b86b-437b-a864-7f5ccc90261b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "financing_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "kind",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partner_collection_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"items\": [\n    {\n      \"amount_to_dismiss\": 12.4,\n      \"collected_at\": \"2025-06-03T15:30:00Z\",\n      \"created_at\": \"2023-11-06T18:07:50.093514-03:00\",\n      \"deposited_amount\": 57.7,\n      \"dismiss_reasons\": [\n        \"[FINANCING_PAID]\"\n      ],\n      \"financing_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n      \"gross_sales_amount\": 500,\n      \"id\": \"550e8400-e29b-41d4-a716-446655440000\",\n      \"kind\": \"REGULAR\",\n      \"metadata\": {},\n      \"original_repayment_amount\": 70.1,\n      \"parent_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n      \"partner_collection_id\": \"123456789\",\n      \"partner_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n      \"processed_at\": \"2023-11-06T18:07:59.533338-03:00\",\n      \"reason\": [\n        \"REFILL_INTEREST_RETURNED\"\n      ],\n      \"remaining_balance\": 1000,\n      \"repayment_amount\": 70.1,\n      \"status\": \"PROCESSED\",\n      \"total_paid\": 1000,\n      \"updated_at\": \"2023-11-06T18:07:58.590313-03:00\"\n    },\n    {\n      \"amount_to_dismiss\": 12.4,\n      \"collected_at\": \"2025-06-03T15:30:00Z\",\n      \"created_at\": \"2023-11-06T18:07:50.093514-03:00\",\n      \"deposited_amount\": 57.7,\n      \"dismiss_reasons\": [\n        \"[FINANCING_PAID]\"\n      ],\n      \"financing_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n      \"gross_sales_amount\": 500,\n      \"id\": \"550e8400-e29b-41d4-a716-446655440000\",\n      \"kind\": \"REGULAR\",\n      \"metadata\": {},\n      \"original_repayment_amount\": 70.1,\n      \"parent_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n      \"partner_collection_id\": \"123456789\",\n      \"partner_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n      \"processed_at\": \"2023-11-06T18:07:59.533338-03:00\",\n      \"reason\": [\n        \"REFILL_INTEREST_RETURNED\"\n      ],\n      \"remaining_balance\": 1000,\n      \"repayment_amount\": 70.1,\n      \"status\": \"PROCESSED\",\n      \"total_paid\": 1000,\n      \"updated_at\": \"2023-11-06T18:07:58.590313-03:00\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "63136336-3b1a-4cbc-8a2e-634ab03f8d96",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "financing_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "kind",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partner_collection_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ae49dcf9-5716-4bb1-92cb-1bbf0807af31",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "financing_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "kind",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partner_collection_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4312e9d9-6e83-4a71-af4e-ba7346900b07",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "financing_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "kind",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partner_collection_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "46c051ee-c6d4-4897-baaa-e779aec6384c",
+          "name": "Add one or more collections.",
+          "request": {
+            "name": "Add one or more collections.",
+            "description": {
+              "content": "Important: It only allows collections from one unique financing each time.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collections",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"collected_at\": \"<string>\",\n    \"financing_id\": \"<string>\",\n    \"gross_sales_amount\": \"<number>\",\n    \"kind\": \"REGULAR\",\n    \"partner_collection_id\": \"<string>\",\n    \"repayment_amount\": \"<number>\",\n    \"metadata\": \"<object>\"\n  },\n  {\n    \"collected_at\": \"<string>\",\n    \"financing_id\": \"<string>\",\n    \"gross_sales_amount\": \"<number>\",\n    \"kind\": \"REGULAR\",\n    \"partner_collection_id\": \"<string>\",\n    \"repayment_amount\": \"<number>\",\n    \"metadata\": \"<object>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "88cd4865-8e24-451e-90fb-c7042bd92265",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"collected_at\": \"2025-06-03T15:30:00Z\",\n    \"financing_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n    \"gross_sales_amount\": 1000,\n    \"kind\": \"REGULAR\",\n    \"partner_collection_id\": \"123456789\",\n    \"repayment_amount\": 1000,\n    \"metadata\": \"<object>\"\n  },\n  {\n    \"collected_at\": \"2025-06-03T15:30:00Z\",\n    \"financing_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n    \"gross_sales_amount\": 1000,\n    \"kind\": \"REGULAR\",\n    \"partner_collection_id\": \"123456789\",\n    \"repayment_amount\": 1000,\n    \"metadata\": \"<object>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"items\": [\n    {\n      \"collection_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n      \"data\": {\n        \"amount_to_dismiss\": 12.4,\n        \"charged_amount\": 57.7,\n        \"dismiss_reasons\": [\n          \"[FINANCING_PAID]\"\n        ],\n        \"repayment_amount\": 70.1\n      },\n      \"financing_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n      \"message\": \"Financing 550e8400-e29b-41d4-a716-446655440000 cap reached\",\n      \"partner_collection_id\": \"123456789\",\n      \"success\": true\n    },\n    {\n      \"collection_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n      \"data\": {\n        \"amount_to_dismiss\": 12.4,\n        \"charged_amount\": 57.7,\n        \"dismiss_reasons\": [\n          \"[FINANCING_PAID]\"\n        ],\n        \"repayment_amount\": 70.1\n      },\n      \"financing_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n      \"message\": \"Financing 550e8400-e29b-41d4-a716-446655440000 cap reached\",\n      \"partner_collection_id\": \"123456789\",\n      \"success\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4c16067a-a2a4-4a18-bf36-8b406e790e60",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"collected_at\": \"2025-06-03T15:30:00Z\",\n    \"financing_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n    \"gross_sales_amount\": 1000,\n    \"kind\": \"REGULAR\",\n    \"partner_collection_id\": \"123456789\",\n    \"repayment_amount\": 1000,\n    \"metadata\": \"<object>\"\n  },\n  {\n    \"collected_at\": \"2025-06-03T15:30:00Z\",\n    \"financing_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n    \"gross_sales_amount\": 1000,\n    \"kind\": \"REGULAR\",\n    \"partner_collection_id\": \"123456789\",\n    \"repayment_amount\": 1000,\n    \"metadata\": \"<object>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ea21cdc8-07b2-48e2-a834-cfd5ec7b16d3",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"collected_at\": \"2025-06-03T15:30:00Z\",\n    \"financing_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n    \"gross_sales_amount\": 1000,\n    \"kind\": \"REGULAR\",\n    \"partner_collection_id\": \"123456789\",\n    \"repayment_amount\": 1000,\n    \"metadata\": \"<object>\"\n  },\n  {\n    \"collected_at\": \"2025-06-03T15:30:00Z\",\n    \"financing_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n    \"gross_sales_amount\": 1000,\n    \"kind\": \"REGULAR\",\n    \"partner_collection_id\": \"123456789\",\n    \"repayment_amount\": 1000,\n    \"metadata\": \"<object>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "adb9fa15-1492-422d-a999-97359bb77300",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"collected_at\": \"2025-06-03T15:30:00Z\",\n    \"financing_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n    \"gross_sales_amount\": 1000,\n    \"kind\": \"REGULAR\",\n    \"partner_collection_id\": \"123456789\",\n    \"repayment_amount\": 1000,\n    \"metadata\": \"<object>\"\n  },\n  {\n    \"collected_at\": \"2025-06-03T15:30:00Z\",\n    \"financing_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n    \"gross_sales_amount\": 1000,\n    \"kind\": \"REGULAR\",\n    \"partner_collection_id\": \"123456789\",\n    \"repayment_amount\": 1000,\n    \"metadata\": \"<object>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gateway-dev.r2capital.co:443/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "21cbfe71-f36c-47c5-9cef-09cbbfe1f7fe",
+    "name": "R2 APIs callbacks collections API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "## Introduction\n<p>Through our REST APIs, you'll be able to run an end-to-end capital program for your merchants. Specifically, you will: </br></p>\n<ul>\n<li>Securely share data about your merchants and their transactions so that R2 can score them</li>\n<li>Issue optimal financing offers for your preapproved merchants</li>\n<li>Launch marketing touchpoints so that preapproved merchants learn about their financing offers</li>\n<li>Send or capture specific data about a merchant to run R2's KYC process</li>\n<li>Learn when a financing has been made along with its specific terms</li>\n<li>Provide sales and/or repayment data on financed merchants</li>\n<li>Retrieve updated balances</li>\n<li>Renew financings</li>\n</ul>\n<p>We have language bindings in Shell. You can view code snippets on the right-hand panel, and you can switch the snippets' programming language using the tabs above the code view.</br>\nTo access our APIs, you need an access token. Please sign-up and get a new access token by registering at our developer portal.</p>\n\nContact Support:\n Name: R2 Support\n Email: support@r2capital.co",
+      "type": "text/plain"
+    }
+  }
+}

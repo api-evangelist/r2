@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "R2 APIs callbacks payments API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "payments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Refund partially one collection.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway-dev.r2capital.co:443/v2/api/payments/payin/refund/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "uuid formatted R2 collection ID."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Important: We are expecting the R2 collection id."
+        },
+        {
+          "info": {
+            "name": "Revert one collection.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway-dev.r2capital.co:443/v2/api/payments/payin/revert/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "uuid formatted R2 collection ID."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Important: We are expecting the R2 collection id."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

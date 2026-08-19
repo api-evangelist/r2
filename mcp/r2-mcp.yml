@@ -2,11 +2,9 @@ generated: '2026-07-20'
 method: derived
 status: candidate
 source: openapi/r2-openapi.json
-note: >-
-  No official hosted R2 MCP server was found. This is a candidate tool list
-  derived one-per-operation from the harvested OpenAPI, for exposing the R2
-  embedded-finance API to agents. Operations carry no operationIds in the spec,
-  so tools are keyed by method + path.
+note: No official hosted R2 MCP server was found. This is a candidate tool list derived one-per-operation
+  from the harvested OpenAPI, for exposing the R2 embedded-finance API to agents. Operations carry no
+  operationIds in the spec, so tools are keyed by method + path.
 server:
   name: r2
   transport: http
@@ -62,3 +60,9 @@ tools:
 - name: create_sandbox_scenario
   description: Seed test merchants, offers, financings, and applications.
   source_operation: openapi/r2-openapi.json#POST /sandbox/scenarios
+deployment:
+  mode: none
+  verified: derived
+  tools: 17
+  checked: '2026-08-12'
+  source: catalog MCP census

@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "R2 APIs callbacks merchants API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "merchants",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Process a merchant.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://gateway-dev.r2capital.co:443/v2/webhooks/merchants/:external_id",
+            "params": [
+              {
+                "name": "external_id",
+                "value": "",
+                "type": "path",
+                "description": "external_id"
+              },
+              {
+                "name": "api_key",
+                "value": "",
+                "type": "query",
+                "description": "api_key"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Process a merchant."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

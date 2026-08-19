@@ -1,0 +1,653 @@
+{
+  "item": [
+    {
+      "id": "696bbb7f-e82d-47a3-8c63-45a811fa0635",
+      "name": "financings",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2f474139-51eb-4d73-9346-accb08bc066f",
+          "name": "Show a financing by its id.",
+          "request": {
+            "name": "Show a financing by its id.",
+            "description": {},
+            "url": {
+              "path": [
+                "financings",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) uuid formatted ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a726fc02-8ce9-43de-a9d5-1e9eb2a59a05",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "financings",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) uuid formatted ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"items\": [\n    {\n      \"amount\": 8184.198867640265,\n      \"amount_to_disburse\": 168.40292580672434,\n      \"application_id\": \"74ed597b-63f3-479f-a17a-77d7fe265599\",\n      \"balance\": 200342.19,\n      \"created_at\": \"string\",\n      \"due_date\": \"2023-03-25\",\n      \"external_id\": \"15HBB34\",\n      \"fixed_fee\": 12453.67,\n      \"id\": \"b6a34301-4910-4a8b-8d2d-998180e219a7\",\n      \"insurance_fee\": 998.34,\n      \"loan_taker\": \"string\",\n      \"loan_taker_short_name\": \"15HBB34\",\n      \"merchant_id\": \"444a1c09-473b-4019-a280-53e1d5604773\",\n      \"offer_id\": \"74ed597b-63f3-479f-a17a-77d7fe265599\",\n      \"paid_percentage\": 50.04,\n      \"paid_total\": 200656.15,\n      \"partner_id\": \"string\",\n      \"product_category\": \"RBF_TERM\",\n      \"repayment_rate\": 25.23,\n      \"start_date\": \"2022-05-20\",\n      \"status\": \"ACTIVE\",\n      \"status_reasons\": [\n        \"string\",\n        \"string\"\n      ],\n      \"subcategory\": \"string\",\n      \"term\": 240,\n      \"total_repayment_amount\": 400998.34,\n      \"updated_at\": \"string\"\n    },\n    {\n      \"amount\": 3830.000804774062,\n      \"amount_to_disburse\": 6341.320472090913,\n      \"application_id\": \"74ed597b-63f3-479f-a17a-77d7fe265599\",\n      \"balance\": 200342.19,\n      \"created_at\": \"string\",\n      \"due_date\": \"2023-03-25\",\n      \"external_id\": \"15HBB34\",\n      \"fixed_fee\": 12453.67,\n      \"id\": \"b6a34301-4910-4a8b-8d2d-998180e219a7\",\n      \"insurance_fee\": 998.34,\n      \"loan_taker\": \"string\",\n      \"loan_taker_short_name\": \"15HBB34\",\n      \"merchant_id\": \"444a1c09-473b-4019-a280-53e1d5604773\",\n      \"offer_id\": \"74ed597b-63f3-479f-a17a-77d7fe265599\",\n      \"paid_percentage\": 50.04,\n      \"paid_total\": 200656.15,\n      \"partner_id\": \"string\",\n      \"product_category\": \"RBF_TERM\",\n      \"repayment_rate\": 25.23,\n      \"start_date\": \"2022-05-20\",\n      \"status\": \"ACTIVE\",\n      \"status_reasons\": [\n        \"string\",\n        \"string\"\n      ],\n      \"subcategory\": \"string\",\n      \"term\": 240,\n      \"total_repayment_amount\": 400998.34,\n      \"updated_at\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e9bf2f5d-25fc-4c82-a580-3bb04f9d6ca1",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "financings",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) uuid formatted ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e0a65cb7-1600-4b8a-a9d6-9f990c637515",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "financings",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) uuid formatted ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cd533618-2f30-4d2a-98e9-dd0e6b941518",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "financings",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) uuid formatted ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5820bc4a-7bb7-4e54-bb7f-1f4718beb80c",
+          "name": "Show all financings.",
+          "request": {
+            "name": "Show all financings.",
+            "description": {
+              "content": "Show a list of financings associated to the partner.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "financings",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "financing_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "kind",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "partner_collection_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ff332be1-b8f0-4f90-9e17-6b5b0b66473d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "financings",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "financing_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "kind",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partner_collection_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"items\": [\n    {\n      \"amount\": 7564.277664962363,\n      \"amount_to_disburse\": 2711.8701588269078,\n      \"application_id\": \"74ed597b-63f3-479f-a17a-77d7fe265599\",\n      \"balance\": 200342.19,\n      \"created_at\": \"string\",\n      \"due_date\": \"2023-03-25\",\n      \"external_id\": \"15HBB34\",\n      \"fixed_fee\": 12453.67,\n      \"id\": \"b6a34301-4910-4a8b-8d2d-998180e219a7\",\n      \"insurance_fee\": 998.34,\n      \"loan_taker\": \"string\",\n      \"loan_taker_short_name\": \"15HBB34\",\n      \"merchant_id\": \"444a1c09-473b-4019-a280-53e1d5604773\",\n      \"offer_id\": \"74ed597b-63f3-479f-a17a-77d7fe265599\",\n      \"paid_percentage\": 50.04,\n      \"paid_total\": 200656.15,\n      \"partner_id\": \"string\",\n      \"product_category\": \"RBF_TERM\",\n      \"repayment_rate\": 25.23,\n      \"start_date\": \"2022-05-20\",\n      \"status\": \"ACTIVE\",\n      \"status_reasons\": [\n        \"string\",\n        \"string\"\n      ],\n      \"subcategory\": \"string\",\n      \"term\": 240,\n      \"total_repayment_amount\": 400998.34,\n      \"updated_at\": \"string\"\n    },\n    {\n      \"amount\": 7061.48159433658,\n      \"amount_to_disburse\": 5978.841832590743,\n      \"application_id\": \"74ed597b-63f3-479f-a17a-77d7fe265599\",\n      \"balance\": 200342.19,\n      \"created_at\": \"string\",\n      \"due_date\": \"2023-03-25\",\n      \"external_id\": \"15HBB34\",\n      \"fixed_fee\": 12453.67,\n      \"id\": \"b6a34301-4910-4a8b-8d2d-998180e219a7\",\n      \"insurance_fee\": 998.34,\n      \"loan_taker\": \"string\",\n      \"loan_taker_short_name\": \"15HBB34\",\n      \"merchant_id\": \"444a1c09-473b-4019-a280-53e1d5604773\",\n      \"offer_id\": \"74ed597b-63f3-479f-a17a-77d7fe265599\",\n      \"paid_percentage\": 50.04,\n      \"paid_total\": 200656.15,\n      \"partner_id\": \"string\",\n      \"product_category\": \"RBF_TERM\",\n      \"repayment_rate\": 25.23,\n      \"start_date\": \"2022-05-20\",\n      \"status\": \"ACTIVE\",\n      \"status_reasons\": [\n        \"string\",\n        \"string\"\n      ],\n      \"subcategory\": \"string\",\n      \"term\": 240,\n      \"total_repayment_amount\": 400998.34,\n      \"updated_at\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b7a2ff04-3ecd-41ad-855c-82239b1b5afb",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "financings",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "financing_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "kind",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partner_collection_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cbfbc154-9310-41bc-a302-07e7a7f59dd9",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "financings",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "financing_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "kind",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partner_collection_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "15317760-c6f2-45eb-b29b-55851738863d",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "financings",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "financing_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "kind",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partner_collection_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gateway-dev.r2capital.co:443/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "905caea9-efa0-4ec9-a202-f4a4c62ad967",
+    "name": "R2 APIs callbacks financings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "## Introduction\n<p>Through our REST APIs, you'll be able to run an end-to-end capital program for your merchants. Specifically, you will: </br></p>\n<ul>\n<li>Securely share data about your merchants and their transactions so that R2 can score them</li>\n<li>Issue optimal financing offers for your preapproved merchants</li>\n<li>Launch marketing touchpoints so that preapproved merchants learn about their financing offers</li>\n<li>Send or capture specific data about a merchant to run R2's KYC process</li>\n<li>Learn when a financing has been made along with its specific terms</li>\n<li>Provide sales and/or repayment data on financed merchants</li>\n<li>Retrieve updated balances</li>\n<li>Renew financings</li>\n</ul>\n<p>We have language bindings in Shell. You can view code snippets on the right-hand panel, and you can switch the snippets' programming language using the tabs above the code view.</br>\nTo access our APIs, you need an access token. Please sign-up and get a new access token by registering at our developer portal.</p>\n\nContact Support:\n Name: R2 Support\n Email: support@r2capital.co",
+      "type": "text/plain"
+    }
+  }
+}

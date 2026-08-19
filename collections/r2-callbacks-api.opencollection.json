@@ -1,0 +1,127 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "R2 APIs callbacks API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "callbacks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Show a callback by its id as filtering key.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway-dev.r2capital.co:443/v2/callbacks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "uuid formatted ID."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Show a callback by its id as filtering key."
+        },
+        {
+          "info": {
+            "name": "Update a callback.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway-dev.r2capital.co:443/v2/callbacks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "uuid formatted ID."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Update a callback."
+        },
+        {
+          "info": {
+            "name": "Show all callbacks.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway-dev.r2capital.co:443/v2/callbacks/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Show a list of callbacks associated to the partner using the given filtering params."
+        },
+        {
+          "info": {
+            "name": "Add a new callback.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway-dev.r2capital.co:443/v2/callbacks/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Important: It only allows callbacks from one unique financing each time."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
