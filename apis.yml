@@ -184,6 +184,9 @@ x-enrichment:
   artifacts_added: 24
   pass: local-v1
 common:
+- type: CapabilityMap
+  url: capabilities/r2-capability-edges.yml
+  name: R2 Business Capability Map
 - type: DeveloperPortal
   url: https://r2-api-docs.readme.io/
 - type: Documentation

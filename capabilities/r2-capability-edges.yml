@@ -1,0 +1,25 @@
+slug: r2
+provider: R2
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: financings
+  spec_file: r2-financings-api-openapi.yml
+  capability_id: BC-1320
+  capability_id_l1: BC-1320
+  capability_name: Credit & Lending Management
+  confidence: 0.72
+  evidence: 'GET /financings/{id} Show a financing by its id; schema domain.FinancingsViewAPI; vendor:
+    "Learn when a financing has been made along with its specific terms"'
+  reason: Exposes issued merchant financings and their terms/balances — clearly credit & lending management;
+    read-only view leaves the exact sub-capability (origination vs servicing) unresolved.
