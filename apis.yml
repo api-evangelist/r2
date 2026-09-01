@@ -69,7 +69,7 @@ apis:
   humanURL: https://r2-api-docs.readme.io/
   baseURL: https://gateway-dev.r2capital.co/v2/
   tags:
-  - callbacks
+  - Callbacks
   tags_raw:
   - callbacks
   properties:
@@ -111,7 +111,7 @@ apis:
   humanURL: https://r2-api-docs.readme.io/
   baseURL: https://gateway-dev.r2capital.co/v2/
   tags:
-  - financings
+  - Financings
   tags_raw:
   - financings
   properties:
