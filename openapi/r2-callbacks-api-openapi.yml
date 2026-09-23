@@ -1,43 +1,20 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   contact:
     email: support@r2capital.co
     name: R2 Support
   description: '## Introduction
 
-    <p>Through our REST APIs, you''ll be able to run an end-to-end capital program for your merchants. Specifically, you will: </br></p>
 
-    <ul>
-
-    <li>Securely share data about your merchants and their transactions so that R2 can score them</li>
-
-    <li>Issue optimal financing offers for your preapproved merchants</li>
-
-    <li>Launch marketing touchpoints so that preapproved merchants learn about their financing offers</li>
-
-    <li>Send or capture specific data about a merchant to run R2''s KYC process</li>
-
-    <li>Learn when a financing has been made along with its specific terms</li>
-
-    <li>Provide sales and/or repayment data on financed merchants</li>
-
-    <li>Retrieve updated balances</li>
-
-    <li>Renew financings</li>
-
-    </ul>
-
-    <p>We have language bindings in Shell. You can view code snippets on the right-hand panel, and you can switch the snippets'' programming language using the tabs above the code view.</br>
-
-    To access our APIs, you need an access token. Please sign-up and get a new access token by registering at our developer portal.</p>'
-  title: R2 APIs callbacks API
+    Through our REST APIs, you''ll be able to run an end-to-end capital program for your merchants.'
+  title: R2 Callbacks API
   version: '0.1'
 servers:
 - url: https://gateway-dev.r2capital.co:443/v2
 - url: https://gateway-dev.r2capital.co/v2/
   description: Development environment (DEV)
 tags:
-- name: callbacks
+- name: Callbacks
 paths:
   /callbacks/{id}:
     get:
@@ -70,9 +47,11 @@ paths:
           description: Internal Server Error
       security:
       - JWT: []
-      summary: Show a callback by its id as filtering key.
+      summary: Show a callback by its id as filtering key
       tags:
-      - callbacks
+      - Callbacks
+      operationId: getCallbacksById
+      x-operation-id-source: derived
     put:
       parameters:
       - description: uuid formatted ID.
@@ -105,9 +84,11 @@ paths:
           description: Internal Server Error
       security:
       - JWT: []
-      summary: Update a callback.
+      summary: Update a callback
       tags:
-      - callbacks
+      - Callbacks
+      operationId: putCallbacksById
+      x-operation-id-source: derived
   /callbacks/:
     get:
       description: Show a list of callbacks associated to the partner using the given filtering params.
@@ -146,9 +127,11 @@ paths:
           description: Internal Server Error
       security:
       - JWT: []
-      summary: Show all callbacks.
+      summary: Show all callbacks
       tags:
-      - callbacks
+      - Callbacks
+      operationId: getCallbacks
+      x-operation-id-source: derived
     post:
       description: 'Important: It only allows callbacks from one unique financing each time.'
       requestBody:
@@ -175,9 +158,11 @@ paths:
           description: Internal Server Error
       security:
       - JWT: []
-      summary: Add a new callback.
+      summary: Add a new callback
       tags:
-      - callbacks
+      - Callbacks
+      operationId: postCallbacks
+      x-operation-id-source: derived
 components:
   requestBodies:
     callbacks.CallbackRequestArray:

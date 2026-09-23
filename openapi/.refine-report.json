@@ -1,28 +1,43 @@
 {
   "provider": "r2",
   "sources": [
-    "r2-callbacks-api-openapi.yml",
-    "r2-collections-api-openapi.yml",
-    "r2-events-api-openapi.yml",
-    "r2-financings-api-openapi.yml",
-    "r2-merchants-api-openapi.yml",
-    "r2-payments-api-openapi.yml",
-    "r2-sandbox-api-openapi.yml",
-    "r2-transactions-api-openapi.yml"
+    "_original/r2-openapi.json"
   ],
   "outputs": [
+    "r2-sandbox-api-openapi.yml",
     "r2-callbacks-api-openapi.yml",
     "r2-collections-api-openapi.yml",
     "r2-events-api-openapi.yml",
     "r2-financings-api-openapi.yml",
     "r2-merchants-api-openapi.yml",
     "r2-payments-api-openapi.yml",
-    "r2-sandbox-api-openapi.yml",
     "r2-transactions-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "r2-openapi.json: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "r2-openapi.json: tagged paths POST /sandbox/scenarios -> Sandbox",
+    "r2-openapi.json: declared missing tag: Sandbox",
+    "r2-openapi.json: declared missing tag: callbacks",
+    "r2-openapi.json: declared missing tag: collections",
+    "r2-openapi.json: declared missing tag: events",
+    "r2-openapi.json: declared missing tag: financings",
+    "r2-openapi.json: declared missing tag: merchants",
+    "r2-openapi.json: declared missing tag: payments",
+    "r2-openapi.json: declared missing tag: transactions",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "r2-callbacks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "r2-collections-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "r2-events-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "r2-financings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "r2-merchants-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "r2-payments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "r2-sandbox-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "r2-transactions-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

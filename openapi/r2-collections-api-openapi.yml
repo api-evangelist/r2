@@ -1,43 +1,20 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   contact:
     email: support@r2capital.co
     name: R2 Support
   description: '## Introduction
 
-    <p>Through our REST APIs, you''ll be able to run an end-to-end capital program for your merchants. Specifically, you will: </br></p>
 
-    <ul>
-
-    <li>Securely share data about your merchants and their transactions so that R2 can score them</li>
-
-    <li>Issue optimal financing offers for your preapproved merchants</li>
-
-    <li>Launch marketing touchpoints so that preapproved merchants learn about their financing offers</li>
-
-    <li>Send or capture specific data about a merchant to run R2''s KYC process</li>
-
-    <li>Learn when a financing has been made along with its specific terms</li>
-
-    <li>Provide sales and/or repayment data on financed merchants</li>
-
-    <li>Retrieve updated balances</li>
-
-    <li>Renew financings</li>
-
-    </ul>
-
-    <p>We have language bindings in Shell. You can view code snippets on the right-hand panel, and you can switch the snippets'' programming language using the tabs above the code view.</br>
-
-    To access our APIs, you need an access token. Please sign-up and get a new access token by registering at our developer portal.</p>'
-  title: R2 APIs callbacks collections API
+    Through our REST APIs, you''ll be able to run an end-to-end capital program for your merchants.'
+  title: R2 Collections API
   version: '0.1'
 servers:
 - url: https://gateway-dev.r2capital.co:443/v2
 - url: https://gateway-dev.r2capital.co/v2/
   description: Development environment (DEV)
 tags:
-- name: collections
+- name: Collections
 paths:
   /collections/{id}:
     get:
@@ -70,9 +47,11 @@ paths:
           description: Internal Server Error
       security:
       - JWT: []
-      summary: Show a collection by its id as filtering key.
+      summary: Show a collection by its id as filtering key
       tags:
-      - collections
+      - Collections
+      operationId: getCollectionsById
+      x-operation-id-source: derived
   /collections/:
     get:
       description: Show a list of collections associated to the partner using the given filtering params.
@@ -134,9 +113,11 @@ paths:
           description: Internal Server Error
       security:
       - JWT: []
-      summary: Show all collections.
+      summary: Show all collections
       tags:
-      - collections
+      - Collections
+      operationId: getCollections
+      x-operation-id-source: derived
     post:
       description: 'Important: It only allows collections from one unique financing each time.'
       requestBody:
@@ -170,11 +151,69 @@ paths:
           description: Internal Server Error
       security:
       - JWT: []
-      summary: Add one or more collections.
+      summary: Add one or more collections
       tags:
-      - collections
+      - Collections
+      operationId: postCollections
+      x-operation-id-source: derived
 components:
   schemas:
+    domain.CollectionRequest:
+      properties:
+        collected_at:
+          example: '2025-06-03T15:30:00Z'
+          type: string
+        financing_id:
+          example: 550e8400-e29b-41d4-a716-446655440000
+          type: string
+        gross_sales_amount:
+          example: 1000
+          type: number
+        kind:
+          default: REGULAR
+          enum:
+          - REGULAR
+          - DIRECT
+          - RETURNED
+          example: REGULAR
+          type: string
+        metadata:
+          description: "Metadata represents additional data in JSON format\n\t@Example\t{\"key1\": \"value1\", \"key2\": \"123\"}"
+          type: object
+        partner_collection_id:
+          example: '123456789'
+          type: string
+        repayment_amount:
+          example: 1000
+          type: number
+      required:
+      - collected_at
+      - financing_id
+      - gross_sales_amount
+      - kind
+      - partner_collection_id
+      - repayment_amount
+      type: object
+    domain.CollectionResponse:
+      properties:
+        collection_id:
+          example: 550e8400-e29b-41d4-a716-446655440000
+          type: string
+        data:
+          $ref: '#/components/schemas/domain.Data'
+        financing_id:
+          example: 550e8400-e29b-41d4-a716-446655440000
+          type: string
+        message:
+          example: Financing 550e8400-e29b-41d4-a716-446655440000 cap reached
+          type: string
+        partner_collection_id:
+          example: '123456789'
+          type: string
+        success:
+          example: true
+          type: boolean
+      type: object
     domain.Collection:
       properties:
         amount_to_dismiss:
@@ -261,62 +300,6 @@ components:
         updated_at:
           example: '2023-11-06T18:07:58.590313-03:00'
           type: string
-      type: object
-    domain.CollectionResponse:
-      properties:
-        collection_id:
-          example: 550e8400-e29b-41d4-a716-446655440000
-          type: string
-        data:
-          $ref: '#/components/schemas/domain.Data'
-        financing_id:
-          example: 550e8400-e29b-41d4-a716-446655440000
-          type: string
-        message:
-          example: Financing 550e8400-e29b-41d4-a716-446655440000 cap reached
-          type: string
-        partner_collection_id:
-          example: '123456789'
-          type: string
-        success:
-          example: true
-          type: boolean
-      type: object
-    domain.CollectionRequest:
-      properties:
-        collected_at:
-          example: '2025-06-03T15:30:00Z'
-          type: string
-        financing_id:
-          example: 550e8400-e29b-41d4-a716-446655440000
-          type: string
-        gross_sales_amount:
-          example: 1000
-          type: number
-        kind:
-          default: REGULAR
-          enum:
-          - REGULAR
-          - DIRECT
-          - RETURNED
-          example: REGULAR
-          type: string
-        metadata:
-          description: "Metadata represents additional data in JSON format\n\t@Example\t{\"key1\": \"value1\", \"key2\": \"123\"}"
-          type: object
-        partner_collection_id:
-          example: '123456789'
-          type: string
-        repayment_amount:
-          example: 1000
-          type: number
-      required:
-      - collected_at
-      - financing_id
-      - gross_sales_amount
-      - kind
-      - partner_collection_id
-      - repayment_amount
       type: object
     domain.Data:
       properties:

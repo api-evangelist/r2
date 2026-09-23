@@ -1,43 +1,20 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   contact:
     email: support@r2capital.co
     name: R2 Support
   description: '## Introduction
 
-    <p>Through our REST APIs, you''ll be able to run an end-to-end capital program for your merchants. Specifically, you will: </br></p>
 
-    <ul>
-
-    <li>Securely share data about your merchants and their transactions so that R2 can score them</li>
-
-    <li>Issue optimal financing offers for your preapproved merchants</li>
-
-    <li>Launch marketing touchpoints so that preapproved merchants learn about their financing offers</li>
-
-    <li>Send or capture specific data about a merchant to run R2''s KYC process</li>
-
-    <li>Learn when a financing has been made along with its specific terms</li>
-
-    <li>Provide sales and/or repayment data on financed merchants</li>
-
-    <li>Retrieve updated balances</li>
-
-    <li>Renew financings</li>
-
-    </ul>
-
-    <p>We have language bindings in Shell. You can view code snippets on the right-hand panel, and you can switch the snippets'' programming language using the tabs above the code view.</br>
-
-    To access our APIs, you need an access token. Please sign-up and get a new access token by registering at our developer portal.</p>'
-  title: R2 APIs callbacks merchants API
+    Through our REST APIs, you''ll be able to run an end-to-end capital program for your merchants.'
+  title: R2 Merchants API
   version: '0.1'
 servers:
 - url: https://gateway-dev.r2capital.co:443/v2
 - url: https://gateway-dev.r2capital.co/v2/
   description: Development environment (DEV)
 tags:
-- name: merchants
+- name: Merchants
 paths:
   /webhooks/merchants/{external_id}:
     patch:
@@ -82,38 +59,13 @@ paths:
           description: Not Found
         '500':
           description: Internal Server Error
-      summary: Process a merchant.
+      summary: Process a merchant
       tags:
-      - merchants
+      - Merchants
+      operationId: patchWebhooksMerchantsByExternalId
+      x-operation-id-source: derived
 components:
   schemas:
-    domain.MerchantMetadataBank:
-      properties:
-        account_number:
-          type: string
-        account_type:
-          type: string
-        bank_name:
-          type: string
-        code:
-          type: string
-        disbursement_info:
-          $ref: '#/components/schemas/domain.MerchantMetadataBankDisbursementInfo'
-        doc_id:
-          type: string
-        doc_type:
-          type: string
-        id:
-          type: string
-        owner:
-          type: string
-        rfc:
-          type: string
-        rut:
-          type: string
-      type: object
-    domain.MerchantMetadataAdditionalInformation:
-      type: object
     domain.MerchantMetadataBankDisbursementInfo:
       properties:
         first_payout_unix_time_seconds:
@@ -127,11 +79,22 @@ components:
         shared_at:
           type: string
       type: object
-    domain.Docs:
+    domain.MerchantMetadata:
       properties:
-        doc_id:
-          type: string
-        doc_type:
+        additional_information:
+          $ref: '#/components/schemas/domain.MerchantMetadataAdditionalInformation'
+        address:
+          $ref: '#/components/schemas/domain.MerchantMetadataAddress'
+        banks:
+          items:
+            $ref: '#/components/schemas/domain.MerchantMetadataBank'
+          type: array
+        business:
+          $ref: '#/components/schemas/domain.MerchantMetadataBusiness'
+        contact:
+          $ref: '#/components/schemas/domain.MerchantMetadataContact'
+        status:
+          description: This should be in a new column
           type: string
       type: object
     domain.MerchantMetadataBusiness:
@@ -202,24 +165,6 @@ components:
         zip_code:
           type: string
       type: object
-    domain.MerchantMetadata:
-      properties:
-        additional_information:
-          $ref: '#/components/schemas/domain.MerchantMetadataAdditionalInformation'
-        address:
-          $ref: '#/components/schemas/domain.MerchantMetadataAddress'
-        banks:
-          items:
-            $ref: '#/components/schemas/domain.MerchantMetadataBank'
-          type: array
-        business:
-          $ref: '#/components/schemas/domain.MerchantMetadataBusiness'
-        contact:
-          $ref: '#/components/schemas/domain.MerchantMetadataContact'
-        status:
-          description: This should be in a new column
-          type: string
-      type: object
     domain.MerchantMetadataBusinessDoc:
       properties:
         doc_id:
@@ -227,11 +172,45 @@ components:
         doc_type:
           type: string
       type: object
+    domain.MerchantMetadataBank:
+      properties:
+        account_number:
+          type: string
+        account_type:
+          type: string
+        bank_name:
+          type: string
+        code:
+          type: string
+        disbursement_info:
+          $ref: '#/components/schemas/domain.MerchantMetadataBankDisbursementInfo'
+        doc_id:
+          type: string
+        doc_type:
+          type: string
+        id:
+          type: string
+        owner:
+          type: string
+        rfc:
+          type: string
+        rut:
+          type: string
+      type: object
     domain.MerchantMetadataContact:
       properties:
         email:
           type: string
         phone:
+          type: string
+      type: object
+    domain.MerchantMetadataAdditionalInformation:
+      type: object
+    domain.Docs:
+      properties:
+        doc_id:
+          type: string
+        doc_type:
           type: string
       type: object
     domain.LegalRepresentative:

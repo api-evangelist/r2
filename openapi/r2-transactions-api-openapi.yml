@@ -1,43 +1,20 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   contact:
     email: support@r2capital.co
     name: R2 Support
   description: '## Introduction
 
-    <p>Through our REST APIs, you''ll be able to run an end-to-end capital program for your merchants. Specifically, you will: </br></p>
 
-    <ul>
-
-    <li>Securely share data about your merchants and their transactions so that R2 can score them</li>
-
-    <li>Issue optimal financing offers for your preapproved merchants</li>
-
-    <li>Launch marketing touchpoints so that preapproved merchants learn about their financing offers</li>
-
-    <li>Send or capture specific data about a merchant to run R2''s KYC process</li>
-
-    <li>Learn when a financing has been made along with its specific terms</li>
-
-    <li>Provide sales and/or repayment data on financed merchants</li>
-
-    <li>Retrieve updated balances</li>
-
-    <li>Renew financings</li>
-
-    </ul>
-
-    <p>We have language bindings in Shell. You can view code snippets on the right-hand panel, and you can switch the snippets'' programming language using the tabs above the code view.</br>
-
-    To access our APIs, you need an access token. Please sign-up and get a new access token by registering at our developer portal.</p>'
-  title: R2 APIs callbacks transactions API
+    Through our REST APIs, you''ll be able to run an end-to-end capital program for your merchants.'
+  title: R2 Transactions API
   version: '0.1'
 servers:
 - url: https://gateway-dev.r2capital.co:443/v2
 - url: https://gateway-dev.r2capital.co/v2/
   description: Development environment (DEV)
 tags:
-- name: transactions
+- name: Transactions
 paths:
   /transactions/{id}:
     get:
@@ -70,9 +47,11 @@ paths:
           description: Internal Server Error
       security:
       - JWT: []
-      summary: Show a Transaction by its id.
+      summary: Show a Transaction by its id
       tags:
-      - transactions
+      - Transactions
+      operationId: getTransactionsById
+      x-operation-id-source: derived
   /transactions/async:
     post:
       description: Create a list of transactions associated to the partner.
@@ -98,9 +77,11 @@ paths:
           description: Internal Server Error
       security:
       - JWT: []
-      summary: Create transactions asynchronously.
+      summary: Create transactions asynchronously
       tags:
-      - transactions
+      - Transactions
+      operationId: postTransactionsAsync
+      x-operation-id-source: derived
   /transactions/:
     post:
       description: 'Important: It only allows transactions from one unique financing each time.'
@@ -128,9 +109,11 @@ paths:
           description: Internal Server Error
       security:
       - JWT: []
-      summary: Add one or more transactions.
+      summary: Add one or more transactions
       tags:
-      - transactions
+      - Transactions
+      operationId: postTransactions
+      x-operation-id-source: derived
 components:
   requestBodies:
     transactions.transactionRequestArray:
@@ -143,43 +126,6 @@ components:
       description: Transaction data
       required: true
   schemas:
-    transactions.Transaction:
-      properties:
-        amount:
-          example: 100.5
-          type: number
-        category:
-          example: REGULAR
-          type: string
-        created_at:
-          example: '2023-11-01T00:00:00Z'
-          type: string
-        currency:
-          enum:
-          - MXN
-          - CLP
-          - COP
-          example: MXN
-          type: string
-        external_id:
-          example: '1234567890'
-          type: string
-        id:
-          example: 123e4567-e89b-12d3-a456-426614174000
-          type: string
-        metadata:
-          type: object
-        occurred_at:
-          example: '2023-01-25T07:00:18.00580Z'
-          format: date
-          type: string
-        partner_transaction_id:
-          example: '1234567890'
-          type: string
-        updated_at:
-          example: '2023-11-01T00:00:00Z'
-          type: string
-      type: object
     transactions.transactionRequest:
       properties:
         amount:
@@ -219,6 +165,43 @@ components:
       - metadata
       - occurred_at
       - partner_transaction_id
+      type: object
+    transactions.Transaction:
+      properties:
+        amount:
+          example: 100.5
+          type: number
+        category:
+          example: REGULAR
+          type: string
+        created_at:
+          example: '2023-11-01T00:00:00Z'
+          type: string
+        currency:
+          enum:
+          - MXN
+          - CLP
+          - COP
+          example: MXN
+          type: string
+        external_id:
+          example: '1234567890'
+          type: string
+        id:
+          example: 123e4567-e89b-12d3-a456-426614174000
+          type: string
+        metadata:
+          type: object
+        occurred_at:
+          example: '2023-01-25T07:00:18.00580Z'
+          format: date
+          type: string
+        partner_transaction_id:
+          example: '1234567890'
+          type: string
+        updated_at:
+          example: '2023-11-01T00:00:00Z'
+          type: string
       type: object
   securitySchemes:
     JWT:
