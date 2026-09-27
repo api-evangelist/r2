@@ -54,6 +54,18 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    events.Transition:
+      properties:
+        client:
+          type: string
+        from:
+          type: string
+        to:
+          type: string
+        user:
+          description: systemx
+          type: string
+      type: object
     events.EventWrite:
       properties:
         data:
@@ -73,18 +85,6 @@ components:
         version:
           default: 1
           type: integer
-      type: object
-    events.Transition:
-      properties:
-        client:
-          type: string
-        from:
-          type: string
-        to:
-          type: string
-        user:
-          description: systemx
-          type: string
       type: object
   securitySchemes:
     JWT:

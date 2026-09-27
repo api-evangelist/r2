@@ -46,7 +46,7 @@ created: '2026-07-17'
 modified: '2026-07-20'
 tags:
 - Company
-- Financial-Services
+- Financial Services
 - Embedded Finance
 - Lending
 - Payments
@@ -64,9 +64,10 @@ tags_raw:
 - Latin America
 - Revenue-Based Financing
 - Webhooks
+- Financial-Services
 apis:
 - aid: r2:r2-callbacks-api
-  name: R2 callbacks API
+  name: R2 Callbacks API
   description: The callbacks API from R2 — 2 operation(s) for callbacks.
   humanURL: https://r2-api-docs.readme.io/
   baseURL: https://gateway-dev.r2capital.co/v2/
@@ -80,7 +81,7 @@ apis:
   - type: APIReference
     url: https://r2-api-docs.readme.io/reference
 - aid: r2:r2-collections-api
-  name: R2 collections API
+  name: R2 Collections API
   description: The collections API from R2 — 2 operation(s) for collections.
   humanURL: https://r2-api-docs.readme.io/
   baseURL: https://gateway-dev.r2capital.co/v2/
@@ -94,7 +95,7 @@ apis:
   - type: APIReference
     url: https://r2-api-docs.readme.io/reference
 - aid: r2:r2-events-api
-  name: R2 events API
+  name: R2 Events API
   description: The events API from R2 — 1 operation(s) for events.
   humanURL: https://r2-api-docs.readme.io/
   baseURL: https://gateway-dev.r2capital.co/v2/
@@ -108,7 +109,7 @@ apis:
   - type: APIReference
     url: https://r2-api-docs.readme.io/reference
 - aid: r2:r2-financings-api
-  name: R2 financings API
+  name: R2 Financings API
   description: The financings API from R2 — 2 operation(s) for financings.
   humanURL: https://r2-api-docs.readme.io/
   baseURL: https://gateway-dev.r2capital.co/v2/
@@ -122,7 +123,7 @@ apis:
   - type: APIReference
     url: https://r2-api-docs.readme.io/reference
 - aid: r2:r2-merchants-api
-  name: R2 merchants API
+  name: R2 Merchants API
   description: The merchants API from R2 — 1 operation(s) for merchants.
   humanURL: https://r2-api-docs.readme.io/
   baseURL: https://gateway-dev.r2capital.co/v2/
@@ -136,7 +137,7 @@ apis:
   - type: APIReference
     url: https://r2-api-docs.readme.io/reference
 - aid: r2:r2-payments-api
-  name: R2 payments API
+  name: R2 Payments API
   description: The payments API from R2 — 2 operation(s) for payments.
   humanURL: https://r2-api-docs.readme.io/
   baseURL: https://gateway-dev.r2capital.co/v2/
@@ -162,7 +163,7 @@ apis:
   - type: APIReference
     url: https://r2-api-docs.readme.io/reference
 - aid: r2:r2-transactions-api
-  name: R2 transactions API
+  name: R2 Transactions API
   description: The transactions API from R2 — 3 operation(s) for transactions.
   humanURL: https://r2-api-docs.readme.io/
   baseURL: https://gateway-dev.r2capital.co/v2/

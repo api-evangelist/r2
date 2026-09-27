@@ -158,6 +158,26 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    domain.CollectionResponse:
+      properties:
+        collection_id:
+          example: 550e8400-e29b-41d4-a716-446655440000
+          type: string
+        data:
+          $ref: '#/components/schemas/domain.Data'
+        financing_id:
+          example: 550e8400-e29b-41d4-a716-446655440000
+          type: string
+        message:
+          example: Financing 550e8400-e29b-41d4-a716-446655440000 cap reached
+          type: string
+        partner_collection_id:
+          example: '123456789'
+          type: string
+        success:
+          example: true
+          type: boolean
+      type: object
     domain.CollectionRequest:
       properties:
         collected_at:
@@ -194,25 +214,23 @@ components:
       - partner_collection_id
       - repayment_amount
       type: object
-    domain.CollectionResponse:
+    domain.Data:
       properties:
-        collection_id:
-          example: 550e8400-e29b-41d4-a716-446655440000
-          type: string
-        data:
-          $ref: '#/components/schemas/domain.Data'
-        financing_id:
-          example: 550e8400-e29b-41d4-a716-446655440000
-          type: string
-        message:
-          example: Financing 550e8400-e29b-41d4-a716-446655440000 cap reached
-          type: string
-        partner_collection_id:
-          example: '123456789'
-          type: string
-        success:
-          example: true
-          type: boolean
+        amount_to_dismiss:
+          example: 12.4
+          type: number
+        charged_amount:
+          example: 57.7
+          type: number
+        dismiss_reasons:
+          example:
+          - '[FINANCING_PAID]'
+          items:
+            type: string
+          type: array
+        repayment_amount:
+          example: 70.1
+          type: number
       type: object
     domain.Collection:
       properties:
@@ -300,24 +318,6 @@ components:
         updated_at:
           example: '2023-11-06T18:07:58.590313-03:00'
           type: string
-      type: object
-    domain.Data:
-      properties:
-        amount_to_dismiss:
-          example: 12.4
-          type: number
-        charged_amount:
-          example: 57.7
-          type: number
-        dismiss_reasons:
-          example:
-          - '[FINANCING_PAID]'
-          items:
-            type: string
-          type: array
-        repayment_amount:
-          example: 70.1
-          type: number
       type: object
   securitySchemes:
     JWT:

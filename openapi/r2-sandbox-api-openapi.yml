@@ -138,113 +138,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    RepaymentStatus:
-      type: string
-      enum:
-      - REGULAR
-      - SLOW_PAYMENT
-      - BEHIND_PAYMENT
-      - PAYMENT_RECOVERY
-    AmountRange:
-      type: object
-      properties:
-        min:
-          type: number
-          description: Minimum amount.
-          example: 100
-        max:
-          type: number
-          description: Maximum amount.
-          example: 1000
-    Features:
-      type: object
-      properties:
-        disbursement_amount:
-          type: number
-          description: Amount disbursed for the financing.
-          example: 1000
-        repayment_rate:
-          type: number
-          description: Percentage of merchant's sales deducted for repayment.
-          example: 10
-        total_repayment_amount:
-          type: number
-          description: Total amount to be repaid.
-          example: 1100
-    SeedOffersResponse:
-      type: object
-      properties:
-        items:
-          type: array
-          description: List of created offers. May contain nulls if some items fail to create.
-          items:
-            type:
-            - object
-            - 'null'
-            properties:
-              id:
-                type: string
-                format: uuid
-                description: Offer ID.
-                example: 12e56130-8e25-4ac4-97a4-c981dd5f366c
-              disbursement_amount:
-                $ref: '#/components/schemas/Money'
-              repayment_rate:
-                type: number
-                format: float
-                description: Repayment percentage for each transaction of the user.
-                example: 20.5
-              status:
-                allOf:
-                - $ref: '#/components/schemas/OfferStatus'
-                description: Offer status (AVAILABLE by default in `seed_offers`).
-              expires_at:
-                type: integer
-                format: int64
-                description: Unix timestamp in milliseconds for the offer expiration.
-        error:
-          type:
-          - string
-          - 'null'
-          description: Error message, if any.
-    OfferStatus:
-      type: string
-      enum:
-      - AVAILABLE
-    FinancingApplicationRequestBody:
-      type: object
-      properties:
-        application_id:
-          type: string
-          description: Unique identifier of the application created.
-          example: 123e4567-e89b-12d3-a456-426614174000
-        features:
-          allOf:
-          - $ref: '#/components/schemas/Features'
-          description: Features of the financing.
-        financing_id:
-          type: string
-          description: Unique identifier of the financing created.
-          example: 223e4567-e89b-12d3-a456-426614174000
-    RequestBody:
-      type: object
-      required:
-      - external_id
-      - scenario
-      properties:
-        external_id:
-          type: string
-          description: Unique identifier of the merchant to be created.
-          example: '1234567890'
-        metadata:
-          allOf:
-          - $ref: '#/components/schemas/ScenarioMetadata'
-          description: Additional metadata for the scenario.
-        scenario:
-          allOf:
-          - $ref: '#/components/schemas/SandboxScenario'
-          description: Name of the scenario to be created.
-          example: financing_active
     ScenarioMetadata:
       type: object
       properties:
@@ -304,6 +197,53 @@ components:
       - financing_active
       - seed_offers
       - pending_application
+    AmountRange:
+      type: object
+      properties:
+        min:
+          type: number
+          description: Minimum amount.
+          example: 100
+        max:
+          type: number
+          description: Maximum amount.
+          example: 1000
+    SeedOffersResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          description: List of created offers. May contain nulls if some items fail to create.
+          items:
+            type:
+            - object
+            - 'null'
+            properties:
+              id:
+                type: string
+                format: uuid
+                description: Offer ID.
+                example: 12e56130-8e25-4ac4-97a4-c981dd5f366c
+              disbursement_amount:
+                $ref: '#/components/schemas/Money'
+              repayment_rate:
+                type: number
+                format: float
+                description: Repayment percentage for each transaction of the user.
+                example: 20.5
+              status:
+                allOf:
+                - $ref: '#/components/schemas/OfferStatus'
+                description: Offer status (AVAILABLE by default in `seed_offers`).
+              expires_at:
+                type: integer
+                format: int64
+                description: Unix timestamp in milliseconds for the offer expiration.
+        error:
+          type:
+          - string
+          - 'null'
+          description: Error message, if any.
     Money:
       type: object
       properties:
@@ -315,6 +255,66 @@ components:
           type: number
           description: Amount in scale 1e5 (e.g., 100.00 → 10000000).
           example: 25000000
+    Features:
+      type: object
+      properties:
+        disbursement_amount:
+          type: number
+          description: Amount disbursed for the financing.
+          example: 1000
+        repayment_rate:
+          type: number
+          description: Percentage of merchant's sales deducted for repayment.
+          example: 10
+        total_repayment_amount:
+          type: number
+          description: Total amount to be repaid.
+          example: 1100
+    RepaymentStatus:
+      type: string
+      enum:
+      - REGULAR
+      - SLOW_PAYMENT
+      - BEHIND_PAYMENT
+      - PAYMENT_RECOVERY
+    OfferStatus:
+      type: string
+      enum:
+      - AVAILABLE
+    FinancingApplicationRequestBody:
+      type: object
+      properties:
+        application_id:
+          type: string
+          description: Unique identifier of the application created.
+          example: 123e4567-e89b-12d3-a456-426614174000
+        features:
+          allOf:
+          - $ref: '#/components/schemas/Features'
+          description: Features of the financing.
+        financing_id:
+          type: string
+          description: Unique identifier of the financing created.
+          example: 223e4567-e89b-12d3-a456-426614174000
+    RequestBody:
+      type: object
+      required:
+      - external_id
+      - scenario
+      properties:
+        external_id:
+          type: string
+          description: Unique identifier of the merchant to be created.
+          example: '1234567890'
+        metadata:
+          allOf:
+          - $ref: '#/components/schemas/ScenarioMetadata'
+          description: Additional metadata for the scenario.
+        scenario:
+          allOf:
+          - $ref: '#/components/schemas/SandboxScenario'
+          description: Name of the scenario to be created.
+          example: financing_active
   securitySchemes:
     JWT:
       in: header

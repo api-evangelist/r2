@@ -175,11 +175,6 @@ components:
       description: callback data
       required: true
   schemas:
-    callbacks.CallbackRequest:
-      properties:
-        url:
-          type: string
-      type: object
     callbacks.Callback:
       properties:
         created_at:
@@ -188,6 +183,11 @@ components:
           type: string
         updated_at:
           type: string
+        url:
+          type: string
+      type: object
+    callbacks.CallbackRequest:
+      properties:
         url:
           type: string
       type: object
