@@ -178,42 +178,6 @@ components:
           example: true
           type: boolean
       type: object
-    domain.CollectionRequest:
-      properties:
-        collected_at:
-          example: '2025-06-03T15:30:00Z'
-          type: string
-        financing_id:
-          example: 550e8400-e29b-41d4-a716-446655440000
-          type: string
-        gross_sales_amount:
-          example: 1000
-          type: number
-        kind:
-          default: REGULAR
-          enum:
-          - REGULAR
-          - DIRECT
-          - RETURNED
-          example: REGULAR
-          type: string
-        metadata:
-          description: "Metadata represents additional data in JSON format\n\t@Example\t{\"key1\": \"value1\", \"key2\": \"123\"}"
-          type: object
-        partner_collection_id:
-          example: '123456789'
-          type: string
-        repayment_amount:
-          example: 1000
-          type: number
-      required:
-      - collected_at
-      - financing_id
-      - gross_sales_amount
-      - kind
-      - partner_collection_id
-      - repayment_amount
-      type: object
     domain.Data:
       properties:
         amount_to_dismiss:
@@ -318,6 +282,42 @@ components:
         updated_at:
           example: '2023-11-06T18:07:58.590313-03:00'
           type: string
+      type: object
+    domain.CollectionRequest:
+      properties:
+        collected_at:
+          example: '2025-06-03T15:30:00Z'
+          type: string
+        financing_id:
+          example: 550e8400-e29b-41d4-a716-446655440000
+          type: string
+        gross_sales_amount:
+          example: 1000
+          type: number
+        kind:
+          default: REGULAR
+          enum:
+          - REGULAR
+          - DIRECT
+          - RETURNED
+          example: REGULAR
+          type: string
+        metadata:
+          description: "Metadata represents additional data in JSON format\n\t@Example\t{\"key1\": \"value1\", \"key2\": \"123\"}"
+          type: object
+        partner_collection_id:
+          example: '123456789'
+          type: string
+        repayment_amount:
+          example: 1000
+          type: number
+      required:
+      - collected_at
+      - financing_id
+      - gross_sales_amount
+      - kind
+      - partner_collection_id
+      - repayment_amount
       type: object
   securitySchemes:
     JWT:

@@ -164,17 +164,12 @@ paths:
       operationId: postCallbacks
       x-operation-id-source: derived
 components:
-  requestBodies:
-    callbacks.CallbackRequestArray:
-      content:
-        application/json:
-          schema:
-            items:
-              $ref: '#/components/schemas/callbacks.CallbackRequest'
-            type: array
-      description: callback data
-      required: true
   schemas:
+    callbacks.CallbackRequest:
+      properties:
+        url:
+          type: string
+      type: object
     callbacks.Callback:
       properties:
         created_at:
@@ -186,11 +181,16 @@ components:
         url:
           type: string
       type: object
-    callbacks.CallbackRequest:
-      properties:
-        url:
-          type: string
-      type: object
+  requestBodies:
+    callbacks.CallbackRequestArray:
+      content:
+        application/json:
+          schema:
+            items:
+              $ref: '#/components/schemas/callbacks.CallbackRequest'
+            type: array
+      description: callback data
+      required: true
   securitySchemes:
     JWT:
       in: header

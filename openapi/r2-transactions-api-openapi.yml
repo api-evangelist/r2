@@ -115,17 +115,44 @@ paths:
       operationId: postTransactions
       x-operation-id-source: derived
 components:
-  requestBodies:
-    transactions.transactionRequestArray:
-      content:
-        application/json:
-          schema:
-            items:
-              $ref: '#/components/schemas/transactions.transactionRequest'
-            type: array
-      description: Transaction data
-      required: true
   schemas:
+    transactions.Transaction:
+      properties:
+        amount:
+          example: 100.5
+          type: number
+        category:
+          example: REGULAR
+          type: string
+        created_at:
+          example: '2023-11-01T00:00:00Z'
+          type: string
+        currency:
+          enum:
+          - MXN
+          - CLP
+          - COP
+          example: MXN
+          type: string
+        external_id:
+          example: '1234567890'
+          type: string
+        id:
+          example: 123e4567-e89b-12d3-a456-426614174000
+          type: string
+        metadata:
+          type: object
+        occurred_at:
+          example: '2023-01-25T07:00:18.00580Z'
+          format: date
+          type: string
+        partner_transaction_id:
+          example: '1234567890'
+          type: string
+        updated_at:
+          example: '2023-11-01T00:00:00Z'
+          type: string
+      type: object
     transactions.transactionRequest:
       properties:
         amount:
@@ -166,43 +193,16 @@ components:
       - occurred_at
       - partner_transaction_id
       type: object
-    transactions.Transaction:
-      properties:
-        amount:
-          example: 100.5
-          type: number
-        category:
-          example: REGULAR
-          type: string
-        created_at:
-          example: '2023-11-01T00:00:00Z'
-          type: string
-        currency:
-          enum:
-          - MXN
-          - CLP
-          - COP
-          example: MXN
-          type: string
-        external_id:
-          example: '1234567890'
-          type: string
-        id:
-          example: 123e4567-e89b-12d3-a456-426614174000
-          type: string
-        metadata:
-          type: object
-        occurred_at:
-          example: '2023-01-25T07:00:18.00580Z'
-          format: date
-          type: string
-        partner_transaction_id:
-          example: '1234567890'
-          type: string
-        updated_at:
-          example: '2023-11-01T00:00:00Z'
-          type: string
-      type: object
+  requestBodies:
+    transactions.transactionRequestArray:
+      content:
+        application/json:
+          schema:
+            items:
+              $ref: '#/components/schemas/transactions.transactionRequest'
+            type: array
+      description: Transaction data
+      required: true
   securitySchemes:
     JWT:
       in: header
