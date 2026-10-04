@@ -145,6 +145,16 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    paymentsdomain.RefundPaymentResponse:
+      properties:
+        error:
+          example: In case of error here is a message
+          type: string
+        items:
+          items:
+            $ref: '#/components/schemas/paymentsdomain.RevertCollectionResponse'
+          type: array
+      type: object
     paymentsdomain.RevertCollectionResponse:
       properties:
         collection_id:
@@ -194,16 +204,6 @@ components:
         partner_collection_id:
           example: 550e8400-e29b-41d4-a716-446655440000
           type: string
-      type: object
-    paymentsdomain.RefundPaymentResponse:
-      properties:
-        error:
-          example: In case of error here is a message
-          type: string
-        items:
-          items:
-            $ref: '#/components/schemas/paymentsdomain.RevertCollectionResponse'
-          type: array
       type: object
   securitySchemes:
     JWT:
