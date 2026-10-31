@@ -64,6 +64,139 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-R2 is a company surfaced as a portfolio company of general-catalyst and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+R2 is an embedded finance platform operating across Latin America (Mexico, Brazil, Chile, Colombia and Peru) that lets digital platforms and marketplaces offer revenue-based financing to their merchants. Through R2's REST APIs and embeddable JavaScript components, partners share merchant and transaction data for credit scoring, surface pre-approved offers, run KYC, disburse capital, and reconcile sales-based repayments via collections. R2 reports having facilitated over 180,000 loans and is backed by General Catalyst.
 
-Backed by: general-catalyst
+**Areas:** Company · Financial Services · Embedded Finance · Lending · Payments · Fintech · Latin America · Revenue-Based Financing · Webhook
+
+## R2 on APIs.io
+
+Everything profiled for R2 is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/r2/](https://apis.io/providers/r2/)** — or go straight to one of the APIs or properties below.
+
+### APIs (8)
+
+- [R2 Callbacks API](https://apis.io/apis/r2/r2-callbacks-api/) — The callbacks API from R2 — 2 operation(s) for callbacks.
+- [R2 Collections API](https://apis.io/apis/r2/r2-collections-api/) — The collections API from R2 — 2 operation(s) for collections.
+- [R2 Events API](https://apis.io/apis/r2/r2-events-api/) — The events API from R2 — 1 operation(s) for events.
+- [R2 Financings API](https://apis.io/apis/r2/r2-financings-api/) — The financings API from R2 — 2 operation(s) for financings.
+- [R2 Merchants API](https://apis.io/apis/r2/r2-merchants-api/) — The merchants API from R2 — 1 operation(s) for merchants.
+- [R2 Payments API](https://apis.io/apis/r2/r2-payments-api/) — The payments API from R2 — 2 operation(s) for payments.
+- [R2 Sandbox API](https://apis.io/apis/r2/r2-sandbox-api/) — The Sandbox API from R2 — 1 operation(s) for sandbox.
+- [R2 Transactions API](https://apis.io/apis/r2/r2-transactions-api/) — The transactions API from R2 — 3 operation(s) for transactions.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [R2 Events Webhooks](https://apis.io/asyncapis/r2/r2-events-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [r2](https://apis.io/servers/r2/r2/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [R2 Agentic Access](https://apis.io/agentic-access/r2/r2-agentic-access/)
+
+#### Collections (8)
+
+Postman and Open Collection request collections.
+
+- [R2 APIs callbacks API](https://apis.io/collections/r2/open-r2-callbacks-api/)
+- [R2 APIs callbacks collections API](https://apis.io/collections/r2/open-r2-collections-api/)
+- [R2 APIs callbacks events API](https://apis.io/collections/r2/open-r2-events-api/)
+- [R2 APIs callbacks financings API](https://apis.io/collections/r2/open-r2-financings-api/)
+- [R2 APIs callbacks merchants API](https://apis.io/collections/r2/open-r2-merchants-api/)
+- [R2 APIs callbacks payments API](https://apis.io/collections/r2/open-r2-payments-api/)
+- [R2 APIs callbacks Sandbox API](https://apis.io/collections/r2/open-r2-sandbox-api/)
+- [R2 APIs callbacks transactions API](https://apis.io/collections/r2/open-r2-transactions-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [R2 Openapi Overlay](https://apis.io/overlays/r2/r2-openapi-overlay/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [R2 Authentication](https://apis.io/security/r2/r2-authentication/)
+- [R2 Domain Security](https://apis.io/security/r2/r2-domain-security/)
+- [R2 Trust Center](https://apis.io/security/r2/r2-trust-center/)
+- [R2 Vulnerability Disclosure](https://apis.io/security/r2/r2-vulnerability-disclosure/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://r2.co)
+- [Documentation](https://r2-api-docs.readme.io/)
+- [Getting started](https://r2-api-docs.readme.io/docs/overview)
+- [API reference](https://r2-api-docs.readme.io/reference)
+- [Support](https://r2.co/contact-us)
+- [Blog](https://r2.co/blog)
+- [Security](https://r2.co/r2s-stance-on-security-privacy)
+- [Compliance](https://r2.co/r2s-stance-on-security-privacy)
+
+## API Evangelist rating
+
+**Kin Score 43.3** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 55.6 |
+| Contract governance | 18.2 |
+| Operational transparency | 34.2 |
+| Developer ergonomics | 47.0 |
+| Access clarity | 15.8 |
+
+**Agent readiness 32.8** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | — |
+| Event Surface Described | yes |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 25.0** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/r2/](https://apis.io/providers/r2/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for R2: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/r2/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
